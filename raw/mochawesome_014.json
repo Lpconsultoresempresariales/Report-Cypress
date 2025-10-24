@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T15:15:39.017Z",
+    "end": "2025-10-24T15:15:46.370Z",
+    "duration": 7353,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1f95e668-085a-4860-8270-b2d71bb52426",
+      "title": "",
+      "fullFile": "cypress/e2e/Productos/1. RegistrarProductos.cy.js",
+      "file": "cypress/e2e/Productos/1. RegistrarProductos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ea632bd-352c-476f-878b-e997e6d06ef6",
+          "title": "RegistroProducto - Agregar ingreso válido",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe registrar un producto",
+              "fullTitle": "RegistroProducto - Agregar ingreso válido Debe registrar un producto",
+              "timedOut": null,
+              "duration": 7304,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Variables del producto ---\n// --- Generar nombre dinámico ---\nconst timestamp = Date.now();\nconst nombreProducto = `P_${timestamp}`;\nconst cantidadProducto = \"22\";\nconst precioCompra = \"50000\";\nconst precioVenta = \"60000\";\n// --- Abrir menú Gestión Financiera ---\ncy.visit(\"/productos\");\n// --- Validar que estamos en la página de Productos ---\ncy.url().should(\"include\", \"/productos\");\n// --- Abrir modal de \"Agregar producto\" ---\ncy.get('button.btn-agregar[data-target=\"#ingresoModal\"]').should(\"be.visible\").click();\ncy.get(\"#ingresoModal\").should(\"be.visible\");\n// --- Llenar datos del producto ---\ncy.get('#ingresoModal input[name=\"nombreProducto\"]').type(nombreProducto);\n// Código se selecciona sin escribir\ncy.get('#ingresoModal input[name=\"codigoProducto\"]').click();\ncy.get(\"#sugerencia-codigo\").should(\"exist\");\ncy.get('#ingresoModal input[name=\"cantidadP\"]').type(cantidadProducto);\ncy.get('#ingresoModal input[name=\"precioCompra_formatted\"]').type(precioCompra);\ncy.get('#ingresoModal input[name=\"precioProducto_formatted\"]').type(precioVenta);\n// --- Guardar producto ---\ncy.get('#ingresoModal button.btn.btn-primary[type=\"submit\"]').click();\n// --- Validar cierre de modal ---\ncy.get(\"#ingresoModal\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "9bb079a3-ba9b-4f86-afc8-fc660b65eda1",
+              "parentUUID": "8ea632bd-352c-476f-878b-e997e6d06ef6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9bb079a3-ba9b-4f86-afc8-fc660b65eda1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7304,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

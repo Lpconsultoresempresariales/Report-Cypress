@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T15:15:48.132Z",
+    "end": "2025-10-24T15:15:57.282Z",
+    "duration": 9150,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bf4a776c-77f7-4cf1-88d2-8f51906f137a",
+      "title": "",
+      "fullFile": "cypress/e2e/Productos/EditarProductos.cy.js",
+      "file": "cypress/e2e/Productos/EditarProductos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0949894c-9b61-4c5d-8248-ecc1256270ba",
+          "title": "Productos: Editar producto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Editar un producto existente de forma limpia",
+              "fullTitle": "Productos: Editar producto Editar un producto existente de forma limpia",
+              "timedOut": null,
+              "duration": 9095,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Variables del producto a editar ---\nconst nuevoCodigo = \"COD-EDIT-001\";\nconst nuevoNombre = \"Producto Editado Test\";\nconst nuevaDescripcion = \"Este es un producto editado desde Cypress\";\nconst nuevoPrecio = \"25000\";\n// --- Abrir menú Gestión Financiera ---\ncy.visit(\"/productos\");\n// --- Validar que estamos en la página de Productos ---\ncy.url().should(\"include\", \"/productos\");\n// --- Abrir el primer modal de edición disponible ---\ncy.get('button[data-target^=\"#productoModalEdit-\"]').first().click();\n// --- Trabajar dentro del modal ---\ncy.get(\"div.modal.fade.show:visible\").within(() => {\n  // --- Editar código ---\n  cy.get(\"input[id^='editCodigoProducto']\").should(\"be.visible\").click().clear().type(nuevoCodigo, {\n    delay: 50\n  });\n  // --- Editar nombre ---\n  cy.get(\"input[id^='editNombreProducto']\").should(\"be.visible\").click().clear().type(nuevoNombre);\n  // --- Editar descripción ---\n  cy.get(\"textarea[id^='editDescripcion']\").should(\"be.visible\").click().clear().type(nuevaDescripcion);\n  // --- Editar precio ---\n  cy.get(\"input[id^='precioProductoEdit']\").should(\"be.visible\").click().clear().type(nuevoPrecio);\n  // --- Guardar cambios ---\n  cy.get(\"div.modal-footer button.btn.btn-primary\").should(\"be.visible\").click();\n});\n// --- Espera a que el modal cierre correctamente ---\ncy.get(\"div.modal.fade.show\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "e842fdba-18d1-420c-b160-9a0283e3b461",
+              "parentUUID": "0949894c-9b61-4c5d-8248-ecc1256270ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e842fdba-18d1-420c-b160-9a0283e3b461"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9095,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

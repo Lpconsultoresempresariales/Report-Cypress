@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T15:12:10.624Z",
+    "end": "2025-10-24T15:12:21.698Z",
+    "duration": 11074,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "badad423-8d74-4724-9acd-0175ee8249c8",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/Gestionar2CotizacionesEditar.cy.js",
+      "file": "cypress/e2e/Ingresos/Gestionar2CotizacionesEditar.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "95c400ca-5fd3-41ae-aa4f-933b7d3489e1",
+          "title": "Ingresos - Editar Cotización",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Editar cotización 1 para Cliente A",
+              "fullTitle": "Ingresos - Editar Cotización Editar cotización 1 para Cliente A",
+              "timedOut": null,
+              "duration": 7473,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- ABRIR MODAL DE EDICIÓN ---\ncy.get('button[onclick^=\"abrirModalEditarCotizacion\"]').eq(index).click();\ncy.get(\"#modalEditarCotizacion\").should(\"be.visible\");\n// --- EDITAR CAMPOS ---\ncy.get('#modalEditarCotizacion input[name=\"cliente\"]').clear().type(escenario.cliente);\ncy.get('#modalEditarCotizacion input[name=\"descripcion\"]').clear().type(escenario.descripcion);\n// Producto: dropdown custom\ncy.get(\"#modalEditarCotizacion .cotizacion-select-input\").click();\ncy.get(`#modalEditarCotizacion .cotizacion-select-option[data-codigo=\"${escenario.producto}\"]`).click({\n  force: true\n});\ncy.get('#modalEditarCotizacion input[name=\"productosCotizacion[1][descripcion]\"]').clear().type(escenario.productoDescripcion);\ncy.get('#modalEditarCotizacion input[name=\"productosCotizacion[1][cantidad]\"]').clear().type(escenario.cantidad);\ncy.get('#modalEditarCotizacion input[name=\"productosCotizacion[1][descuento]\"]').clear().type(escenario.descuento);\ncy.get('#modalEditarCotizacion select[name=\"productosCotizacion[1][iva]\"]').select(escenario.iva);\n// --- GUARDAR CAMBIOS ---\ncy.get(\"#modalEditarCotizacion div.modal-footer.bg-light\").contains(\"Actualizar Cotización\").click();\n// Esperar que el modal de edición se oculte (no visible)\ncy.get(\"#modalEditarCotizacion\", {\n  timeout: 10000\n}).should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "26f7bd47-39c9-486f-a218-afac75939ee6",
+              "parentUUID": "95c400ca-5fd3-41ae-aa4f-933b7d3489e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Editar cotización 2 para Cliente B",
+              "fullTitle": "Ingresos - Editar Cotización Editar cotización 2 para Cliente B",
+              "timedOut": null,
+              "duration": 3476,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- ABRIR MODAL DE EDICIÓN ---\ncy.get('button[onclick^=\"abrirModalEditarCotizacion\"]').eq(index).click();\ncy.get(\"#modalEditarCotizacion\").should(\"be.visible\");\n// --- EDITAR CAMPOS ---\ncy.get('#modalEditarCotizacion input[name=\"cliente\"]').clear().type(escenario.cliente);\ncy.get('#modalEditarCotizacion input[name=\"descripcion\"]').clear().type(escenario.descripcion);\n// Producto: dropdown custom\ncy.get(\"#modalEditarCotizacion .cotizacion-select-input\").click();\ncy.get(`#modalEditarCotizacion .cotizacion-select-option[data-codigo=\"${escenario.producto}\"]`).click({\n  force: true\n});\ncy.get('#modalEditarCotizacion input[name=\"productosCotizacion[1][descripcion]\"]').clear().type(escenario.productoDescripcion);\ncy.get('#modalEditarCotizacion input[name=\"productosCotizacion[1][cantidad]\"]').clear().type(escenario.cantidad);\ncy.get('#modalEditarCotizacion input[name=\"productosCotizacion[1][descuento]\"]').clear().type(escenario.descuento);\ncy.get('#modalEditarCotizacion select[name=\"productosCotizacion[1][iva]\"]').select(escenario.iva);\n// --- GUARDAR CAMBIOS ---\ncy.get(\"#modalEditarCotizacion div.modal-footer.bg-light\").contains(\"Actualizar Cotización\").click();\n// Esperar que el modal de edición se oculte (no visible)\ncy.get(\"#modalEditarCotizacion\", {\n  timeout: 10000\n}).should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "89c986cf-182c-4071-a713-2440fa809bf0",
+              "parentUUID": "95c400ca-5fd3-41ae-aa4f-933b7d3489e1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "26f7bd47-39c9-486f-a218-afac75939ee6",
+            "89c986cf-182c-4071-a713-2440fa809bf0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10949,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

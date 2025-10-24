@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T15:10:13.607Z",
+    "end": "2025-10-24T15:10:24.994Z",
+    "duration": 11387,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dc1923b5-96a5-4e4d-a5b4-b99133f3a4fd",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/ComprobanteVenta.cy.js",
+      "file": "cypress/e2e/Ingresos/ComprobanteVenta.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "742c5a1b-231e-4506-8337-613b6c6ad4d8",
+          "title": "Cuentas por cobrar - Ver comprobante de venta",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe abrir el modal del comprobante y verificar los botones",
+              "fullTitle": "Cuentas por cobrar - Ver comprobante de venta Debe abrir el modal del comprobante y verificar los botones",
+              "timedOut": null,
+              "duration": 11295,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Navegar a Cuentas por cobrar ---\ncy.visit(\"/cuentaspagar\");\n// --- Abrir la primera fila ---\ncy.get(\"td.dtr-control.sorting_1\").first().click();\n// --- Abrir modal comprobante ---\ncy.get('button[data-toggle=\"modal\"]', {\n  timeout: 10000\n}).should(\"be.visible\").first().click();\n// --- Validar botones del modal ---\ncy.get('div[aria-labelledby=\"comprobanteLabel\"]:visible').within(() => {\n  cy.get('button[title=\"Generar comprobante en PDF\"]').first().scrollIntoView().click();\n  cy.get('button[title=\"Generar tirilla térmica (80mm)\"]').first().click();\n  cy.get('div.d-flex button[data-dismiss=\"modal\"]').first().click();\n});\n// --- Confirmar cierre del modal ---\ncy.get('div[aria-labelledby=\"comprobanteLabel\"]').should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "fdd9a0ab-f09f-4949-9e85-32f075f2a3c4",
+              "parentUUID": "742c5a1b-231e-4506-8337-613b6c6ad4d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fdd9a0ab-f09f-4949-9e85-32f075f2a3c4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11295,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

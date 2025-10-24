@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 1,
+    "failures": 0,
+    "start": "2025-10-24T15:11:33.845Z",
+    "end": "2025-10-24T15:11:33.877Z",
+    "duration": 32,
+    "testsRegistered": 1,
+    "passPercent": null,
+    "pendingPercent": 100,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "159c64a5-ba1e-4718-9079-3702791a2943",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/GenerarCotizacion.cy.js",
+      "file": "cypress/e2e/Ingresos/GenerarCotizacion.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "11b6c08b-d065-41d2-8f8e-686d9a4a87f2",
+          "title": "Generar Cotización",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe generar una cotización",
+              "fullTitle": "Generar Cotización Debe generar una cotización",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "// --- Variables de prueba ---\nconst cliente = \"Andrea Perez\";\nconst descripcionGeneral = \"Descripción de la cotización\";\nconst codigoProducto = \"SH229\";\nconst descripcionProducto = \"Descripción adicional del producto\";\nconst cantidad = \"2\";\nconst modalSelector = \".cotizacion-modal\"; // <--- si cambia el modal, solo cambias aquí\n// --- Ir al módulo de Ingresos ---\ncy.visit(\"/ingresos\");\ncy.url().should(\"include\", \"/ingresos\");\n// --- Abrir modal de Cotización ---\ncy.get('a[onclick=\"openCotizacionModal()\"]').click();\n// --- Trabajar dentro del modal ---\ncy.get(modalSelector).should(\"be.visible\").within(() => {\n  // --- Cliente ---\n  cy.get('input[name=\"cliente\"]').type(cliente);\n  // --- Descripción general ---\n  cy.get('input[name=\"descripcion\"]').type(descripcionGeneral);\n  // --- Producto ---\n  cy.get(\".custom-select-container\").first().click();\n  cy.get(\".custom-select-container.open .custom-select-options\").contains(\"li.custom-select-option\", codigoProducto).click();\n  // ---Descripción adicional ---\n  cy.get(\"input.form-control.descripcion-input\").clear().type(descripcionProducto);\n  // ---Cantidad ---\n  cy.get(\"input.form-control.cantidad-input\").clear().type(cantidad);\n  // ---Guardar ---\n  cy.get(\"div.cotizacion-modal__footer button.btn.btn-primary\").click();\n});",
+              "err": {},
+              "uuid": "ca77646b-35d4-4467-939c-cb73612f7a01",
+              "parentUUID": "11b6c08b-d065-41d2-8f8e-686d9a4a87f2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [],
+          "pending": [
+            "ca77646b-35d4-4467-939c-cb73612f7a01"
+          ],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

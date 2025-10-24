@@ -1,0 +1,146 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T15:12:30.456Z",
+    "end": "2025-10-24T15:12:45.941Z",
+    "duration": 15485,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "789a1da6-48e2-4643-8073-58f9c07736a5",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/Gestionar4CotizacionesConvertir.cy.js",
+      "file": "cypress/e2e/Ingresos/Gestionar4CotizacionesConvertir.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c5cfeeea-ae74-434f-bef2-06eb4699dd2e",
+          "title": "Ingresos - Convertir Cotización a Ingreso",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Convertir cotización 1 a Venta de contado con método Efectivo",
+              "fullTitle": "Ingresos - Convertir Cotización a Ingreso Convertir cotización 1 a Venta de contado con método Efectivo",
+              "timedOut": null,
+              "duration": 7897,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Seleccionar la fila correspondiente según el índice\ncy.get(\".table-cotizaciones tbody tr\").eq(index).within(() => {\n  cy.get('button[title=\"Convertir a ingreso\"]').click();\n});\ncy.get(\"#modalConvertirIngreso\").should(\"be.visible\");\n// Seleccionar tipo de ingreso\ncy.get('#modalConvertirIngreso select[name=\"tipo\"]').select(escenario.tipo);\n// Seleccionar método de pago\ncy.get('#modalConvertirIngreso select[name=\"metodoPago\"]').select(escenario.metodoPago);\n// Si es crédito, llenar vencimiento y abono\nif (escenario.tipo === \"Venta a credito\") {\n  cy.get('#modalConvertirIngreso input[name=\"vencimiento\"]').clear().type(escenario.vencimiento);\n  cy.get('#modalConvertirIngreso input[name=\"abono\"]').clear().type(escenario.abono);\n}\n// Si es transferencia, seleccionar tipo de banco\nif (escenario.metodoPago === \"Transferencia\") {\n  cy.get('#modalConvertirIngreso select[name=\"tipoTransferencia\"]').select(escenario.tipoTransferencia);\n}\n// Botón convertir\ncy.get(\"#modalConvertirIngreso button.btn-success\").click();\n// Confirmar SweetAlert\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\", {\n  timeout: 10000\n}).contains(\"Sí, Convertir\").click();\n// Esperar modal final\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\", {\n  timeout: 10000\n}).should(\"be.visible\");\n// Alternar botón según índice (ejemplo: par -> \"Ver Ingresos\", impar -> \"Continuar Aquí\")\nif (index % 2 === 0) {\n  cy.get(\".swal2-actions button\").contains(\"Ver Ingresos\").click();\n} else {\n  cy.get(\".swal2-actions button\").contains(\"Continuar Aquí\").click();\n}\n// Validar que el modal final se cerró\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "177b6fec-a34a-41c0-82ea-5c0a830d8297",
+              "parentUUID": "c5cfeeea-ae74-434f-bef2-06eb4699dd2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Convertir cotización 2 a Venta a credito con método Transferencia",
+              "fullTitle": "Ingresos - Convertir Cotización a Ingreso Convertir cotización 2 a Venta a credito con método Transferencia",
+              "timedOut": null,
+              "duration": 3733,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Seleccionar la fila correspondiente según el índice\ncy.get(\".table-cotizaciones tbody tr\").eq(index).within(() => {\n  cy.get('button[title=\"Convertir a ingreso\"]').click();\n});\ncy.get(\"#modalConvertirIngreso\").should(\"be.visible\");\n// Seleccionar tipo de ingreso\ncy.get('#modalConvertirIngreso select[name=\"tipo\"]').select(escenario.tipo);\n// Seleccionar método de pago\ncy.get('#modalConvertirIngreso select[name=\"metodoPago\"]').select(escenario.metodoPago);\n// Si es crédito, llenar vencimiento y abono\nif (escenario.tipo === \"Venta a credito\") {\n  cy.get('#modalConvertirIngreso input[name=\"vencimiento\"]').clear().type(escenario.vencimiento);\n  cy.get('#modalConvertirIngreso input[name=\"abono\"]').clear().type(escenario.abono);\n}\n// Si es transferencia, seleccionar tipo de banco\nif (escenario.metodoPago === \"Transferencia\") {\n  cy.get('#modalConvertirIngreso select[name=\"tipoTransferencia\"]').select(escenario.tipoTransferencia);\n}\n// Botón convertir\ncy.get(\"#modalConvertirIngreso button.btn-success\").click();\n// Confirmar SweetAlert\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\", {\n  timeout: 10000\n}).contains(\"Sí, Convertir\").click();\n// Esperar modal final\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\", {\n  timeout: 10000\n}).should(\"be.visible\");\n// Alternar botón según índice (ejemplo: par -> \"Ver Ingresos\", impar -> \"Continuar Aquí\")\nif (index % 2 === 0) {\n  cy.get(\".swal2-actions button\").contains(\"Ver Ingresos\").click();\n} else {\n  cy.get(\".swal2-actions button\").contains(\"Continuar Aquí\").click();\n}\n// Validar que el modal final se cerró\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "94e583e5-6288-433f-8c1b-160b4eb7b0f1",
+              "parentUUID": "c5cfeeea-ae74-434f-bef2-06eb4699dd2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Convertir cotización 3 a Otros ingresos con método Cheque",
+              "fullTitle": "Ingresos - Convertir Cotización a Ingreso Convertir cotización 3 a Otros ingresos con método Cheque",
+              "timedOut": null,
+              "duration": 3735,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Seleccionar la fila correspondiente según el índice\ncy.get(\".table-cotizaciones tbody tr\").eq(index).within(() => {\n  cy.get('button[title=\"Convertir a ingreso\"]').click();\n});\ncy.get(\"#modalConvertirIngreso\").should(\"be.visible\");\n// Seleccionar tipo de ingreso\ncy.get('#modalConvertirIngreso select[name=\"tipo\"]').select(escenario.tipo);\n// Seleccionar método de pago\ncy.get('#modalConvertirIngreso select[name=\"metodoPago\"]').select(escenario.metodoPago);\n// Si es crédito, llenar vencimiento y abono\nif (escenario.tipo === \"Venta a credito\") {\n  cy.get('#modalConvertirIngreso input[name=\"vencimiento\"]').clear().type(escenario.vencimiento);\n  cy.get('#modalConvertirIngreso input[name=\"abono\"]').clear().type(escenario.abono);\n}\n// Si es transferencia, seleccionar tipo de banco\nif (escenario.metodoPago === \"Transferencia\") {\n  cy.get('#modalConvertirIngreso select[name=\"tipoTransferencia\"]').select(escenario.tipoTransferencia);\n}\n// Botón convertir\ncy.get(\"#modalConvertirIngreso button.btn-success\").click();\n// Confirmar SweetAlert\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\", {\n  timeout: 10000\n}).contains(\"Sí, Convertir\").click();\n// Esperar modal final\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\", {\n  timeout: 10000\n}).should(\"be.visible\");\n// Alternar botón según índice (ejemplo: par -> \"Ver Ingresos\", impar -> \"Continuar Aquí\")\nif (index % 2 === 0) {\n  cy.get(\".swal2-actions button\").contains(\"Ver Ingresos\").click();\n} else {\n  cy.get(\".swal2-actions button\").contains(\"Continuar Aquí\").click();\n}\n// Validar que el modal final se cerró\ncy.get(\".swal2-container.swal2-center.swal2-backdrop-show\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "610cddb2-0de5-48c5-ad44-a91cfcc81a80",
+              "parentUUID": "c5cfeeea-ae74-434f-bef2-06eb4699dd2e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "177b6fec-a34a-41c0-82ea-5c0a830d8297",
+            "94e583e5-6288-433f-8c1b-160b4eb7b0f1",
+            "610cddb2-0de5-48c5-ad44-a91cfcc81a80"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15365,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}
