@@ -1,0 +1,165 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-29T21:21:33.676Z",
+    "end": "2025-10-29T21:22:05.273Z",
+    "duration": 31597,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "87dc94e2-2440-4eb2-8152-8a9b654a3ee0",
+      "title": "",
+      "fullFile": "cypress/e2e/Terceros/2. editarTercero.cy.js",
+      "file": "cypress/e2e/Terceros/2. editarTercero.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "63342210-02db-494e-9bb8-87205deeacb4",
+          "title": "Terceros - Editar último tercero agregado",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe editar el último clientes agregado",
+              "fullTitle": "Terceros - Editar último tercero agregado Debe editar el último clientes agregado",
+              "timedOut": null,
+              "duration": 9392,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${tercero.categoria}-tab`).click();\ncy.get(`#${tercero.categoria}`).find('button[data-target^=\"#editarTerceroModal\"]').last().click();\ncy.get('div[id*=\"editarTerceroModal\"]:visible').within(() => {\n  cy.get('select[name=\"tipo_persona\"]').select(tercero.tipoPersona);\n  cy.get('select[name=\"tipo_iden\"]').select(tercero.tipoIdentificacion);\n  cy.get('input[name=\"num_iden\"]').clear().type(tercero.numeroIdentificacion);\n  cy.get('input[name=\"nombre\"]').clear().type(tercero.nombre);\n  cy.get('input[name=\"correo\"]').clear().type(tercero.correo);\n  cy.get('input[name=\"num_contact\"]').clear().type(tercero.contacto);\n  cy.get('input[name=\"direccion\"]').clear().type(tercero.direccion);\n  cy.get('select[name=\"departamento\"]').select(tercero.departamento);\n  cy.get('select[name=\"ciudad\"]').select(tercero.ciudad);\n  cy.get(\"div.modal-footer button.btn.btn-primary\").click();\n});\ncy.get('div[id*=\"editarTerceroModal\"]:visible').should(\"not.exist\");",
+              "err": {},
+              "uuid": "aaf3b279-e28f-44d7-8dc5-0552637fa1ff",
+              "parentUUID": "63342210-02db-494e-9bb8-87205deeacb4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe editar el último proveedores agregado",
+              "fullTitle": "Terceros - Editar último tercero agregado Debe editar el último proveedores agregado",
+              "timedOut": null,
+              "duration": 8336,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${tercero.categoria}-tab`).click();\ncy.get(`#${tercero.categoria}`).find('button[data-target^=\"#editarTerceroModal\"]').last().click();\ncy.get('div[id*=\"editarTerceroModal\"]:visible').within(() => {\n  cy.get('select[name=\"tipo_persona\"]').select(tercero.tipoPersona);\n  cy.get('select[name=\"tipo_iden\"]').select(tercero.tipoIdentificacion);\n  cy.get('input[name=\"num_iden\"]').clear().type(tercero.numeroIdentificacion);\n  cy.get('input[name=\"nombre\"]').clear().type(tercero.nombre);\n  cy.get('input[name=\"correo\"]').clear().type(tercero.correo);\n  cy.get('input[name=\"num_contact\"]').clear().type(tercero.contacto);\n  cy.get('input[name=\"direccion\"]').clear().type(tercero.direccion);\n  cy.get('select[name=\"departamento\"]').select(tercero.departamento);\n  cy.get('select[name=\"ciudad\"]').select(tercero.ciudad);\n  cy.get(\"div.modal-footer button.btn.btn-primary\").click();\n});\ncy.get('div[id*=\"editarTerceroModal\"]:visible').should(\"not.exist\");",
+              "err": {},
+              "uuid": "d659e345-6e37-44b6-9097-a06b794e10df",
+              "parentUUID": "63342210-02db-494e-9bb8-87205deeacb4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe editar el último empleados agregado",
+              "fullTitle": "Terceros - Editar último tercero agregado Debe editar el último empleados agregado",
+              "timedOut": null,
+              "duration": 7451,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${tercero.categoria}-tab`).click();\ncy.get(`#${tercero.categoria}`).find('button[data-target^=\"#editarTerceroModal\"]').last().click();\ncy.get('div[id*=\"editarTerceroModal\"]:visible').within(() => {\n  cy.get('select[name=\"tipo_persona\"]').select(tercero.tipoPersona);\n  cy.get('select[name=\"tipo_iden\"]').select(tercero.tipoIdentificacion);\n  cy.get('input[name=\"num_iden\"]').clear().type(tercero.numeroIdentificacion);\n  cy.get('input[name=\"nombre\"]').clear().type(tercero.nombre);\n  cy.get('input[name=\"correo\"]').clear().type(tercero.correo);\n  cy.get('input[name=\"num_contact\"]').clear().type(tercero.contacto);\n  cy.get('input[name=\"direccion\"]').clear().type(tercero.direccion);\n  cy.get('select[name=\"departamento\"]').select(tercero.departamento);\n  cy.get('select[name=\"ciudad\"]').select(tercero.ciudad);\n  cy.get(\"div.modal-footer button.btn.btn-primary\").click();\n});\ncy.get('div[id*=\"editarTerceroModal\"]:visible').should(\"not.exist\");",
+              "err": {},
+              "uuid": "bd1396fc-874c-4812-b9a9-4d6b9f7e85d2",
+              "parentUUID": "63342210-02db-494e-9bb8-87205deeacb4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe editar el último otros agregado",
+              "fullTitle": "Terceros - Editar último tercero agregado Debe editar el último otros agregado",
+              "timedOut": null,
+              "duration": 6098,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${tercero.categoria}-tab`).click();\ncy.get(`#${tercero.categoria}`).find('button[data-target^=\"#editarTerceroModal\"]').last().click();\ncy.get('div[id*=\"editarTerceroModal\"]:visible').within(() => {\n  cy.get('select[name=\"tipo_persona\"]').select(tercero.tipoPersona);\n  cy.get('select[name=\"tipo_iden\"]').select(tercero.tipoIdentificacion);\n  cy.get('input[name=\"num_iden\"]').clear().type(tercero.numeroIdentificacion);\n  cy.get('input[name=\"nombre\"]').clear().type(tercero.nombre);\n  cy.get('input[name=\"correo\"]').clear().type(tercero.correo);\n  cy.get('input[name=\"num_contact\"]').clear().type(tercero.contacto);\n  cy.get('input[name=\"direccion\"]').clear().type(tercero.direccion);\n  cy.get('select[name=\"departamento\"]').select(tercero.departamento);\n  cy.get('select[name=\"ciudad\"]').select(tercero.ciudad);\n  cy.get(\"div.modal-footer button.btn.btn-primary\").click();\n});\ncy.get('div[id*=\"editarTerceroModal\"]:visible').should(\"not.exist\");",
+              "err": {},
+              "uuid": "32b1f485-a9c1-4cf2-8e13-59c49f2236bb",
+              "parentUUID": "63342210-02db-494e-9bb8-87205deeacb4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aaf3b279-e28f-44d7-8dc5-0552637fa1ff",
+            "d659e345-6e37-44b6-9097-a06b794e10df",
+            "bd1396fc-874c-4812-b9a9-4d6b9f7e85d2",
+            "32b1f485-a9c1-4cf2-8e13-59c49f2236bb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 31277,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}
