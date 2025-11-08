@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-08T15:25:12.803Z",
+    "end": "2025-11-08T15:25:17.414Z",
+    "duration": 4611,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5bc27168-d039-4545-920f-3c4f76ace44e",
+      "title": "",
+      "fullFile": "cypress/e2e/Terceros/ReportesTerceros.cy.js",
+      "file": "cypress/e2e/Terceros/ReportesTerceros.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b6180675-d506-4120-b079-b1d1aba88051",
+          "title": "Generar Reporte de Terceros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe abrir el módulo de Terceros y generar un reporte en PDF",
+              "fullTitle": "Generar Reporte de Terceros Debe abrir el módulo de Terceros y generar un reporte en PDF",
+              "timedOut": null,
+              "duration": 4575,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Terceros ---\ncy.visit(\"/terceros\");\n// --- Validar que estamos en la página de Terceros ---\ncy.url().should(\"include\", \"/terceros\");\n// --- Abrir modal de generación de reporte ---\ncy.get('button[data-target=\"#modalReporteTerceros\"]').should(\"be.visible\").click();\n// --- Seleccionar PDF como formato ---\ncy.get(\"#formato\").select(\"PDF\");\n// --- Seleccionar todas las categorías ---\ncy.get(\"#todos\").check();\n// --- Generar reporte ---\ncy.get('#modalReporteTerceros .modal-footer button[type=\"submit\"].btn.btn-primary').should(\"be.visible\").click();",
+              "err": {},
+              "uuid": "27b75e57-3b11-471a-93ab-0105ef8d1d6b",
+              "parentUUID": "b6180675-d506-4120-b079-b1d1aba88051",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "27b75e57-3b11-471a-93ab-0105ef8d1d6b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4575,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}
