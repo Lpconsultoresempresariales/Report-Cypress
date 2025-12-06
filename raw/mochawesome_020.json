@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:22:10.978Z",
+    "end": "2025-12-06T14:22:20.653Z",
+    "duration": 9675,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5d27787b-5c15-4958-95e8-af1a18e17eb5",
+      "title": "",
+      "fullFile": "cypress/e2e/Productos/EliminarProductos.cy.js",
+      "file": "cypress/e2e/Productos/EliminarProductos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d2407843-0129-4fe0-8ee5-163b89923c68",
+          "title": "Productos: Eliminar producto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe eliminar el primer producto de la lista",
+              "fullTitle": "Productos: Eliminar producto Debe eliminar el primer producto de la lista",
+              "timedOut": null,
+              "duration": 9627,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Seleccionar el primer producto de la lista ---\ncy.get('button[onclick^=\"mostrarAlertaEliminar\"]').first().click();\n// --- Confirmar modal de eliminación ---\ncy.get(\"div.swal2-popup.swal2-modal\").should(\"be.visible\");\ncy.get(\"button.swal2-confirm.swal2-styled\").click();\n// --- Validación mínima: el modal desaparece ---\ncy.get(\"div.swal2-popup.swal2-modal\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "bc57690e-160a-4314-bc98-486baf8074c4",
+              "parentUUID": "d2407843-0129-4fe0-8ee5-163b89923c68",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bc57690e-160a-4314-bc98-486baf8074c4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9627,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

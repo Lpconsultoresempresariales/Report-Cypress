@@ -1,0 +1,224 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:23:26.529Z",
+    "end": "2025-12-06T14:23:50.407Z",
+    "duration": 23878,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6521600e-6d1f-46be-b07b-72dfce145fb6",
+      "title": "",
+      "fullFile": "cypress/e2e/Reportes/2. egresos.cy.js",
+      "file": "cypress/e2e/Reportes/2. egresos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "13143578-d609-4329-b58e-e5fefed40375",
+          "title": "Reportes - Egresos (Beta)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "5fbfbd01-12f6-4ae3-87b7-89c9b355929f",
+              "title": "Generar Reporte Egresos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Reporte Egresos por fecha",
+                  "fullTitle": "Reportes - Egresos (Beta) Generar Reporte Egresos Debe generar Reporte Egresos por fecha",
+                  "timedOut": null,
+                  "duration": 9901,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Trabajar dentro del modal visible\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si el reporte requiere seleccionar filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click({\n      force: true\n    });\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      cy.get(filtro.id).should(\"be.visible\").click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").should(\"be.visible\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").should(\"be.visible\").click();\n  cy.wait(800);\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").should(\"be.visible\").click({\n    force: true\n  });\n});\n// Confirmar cierre del modal\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "1b221678-0299-42ae-9fac-54eb78833221",
+                  "parentUUID": "5fbfbd01-12f6-4ae3-87b7-89c9b355929f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Debe generar Reporte Egresos por registro",
+                  "fullTitle": "Reportes - Egresos (Beta) Generar Reporte Egresos Debe generar Reporte Egresos por registro",
+                  "timedOut": null,
+                  "duration": 4463,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Trabajar dentro del modal visible\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si el reporte requiere seleccionar filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click({\n      force: true\n    });\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      cy.get(filtro.id).should(\"be.visible\").click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").should(\"be.visible\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").should(\"be.visible\").click();\n  cy.wait(800);\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").should(\"be.visible\").click({\n    force: true\n  });\n});\n// Confirmar cierre del modal\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "2f442605-519e-4cc4-b87d-6b0072b5b602",
+                  "parentUUID": "5fbfbd01-12f6-4ae3-87b7-89c9b355929f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1b221678-0299-42ae-9fac-54eb78833221",
+                "2f442605-519e-4cc4-b87d-6b0072b5b602"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 14364,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "fffeb39b-c603-4bac-855e-3f009ae9c4e3",
+              "title": "Generar Reporte Costos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Reporte Costos por fecha",
+                  "fullTitle": "Reportes - Egresos (Beta) Generar Reporte Costos Debe generar Reporte Costos por fecha",
+                  "timedOut": null,
+                  "duration": 4674,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Trabajar dentro del modal visible\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si el reporte requiere seleccionar filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click({\n      force: true\n    });\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      cy.get(filtro.id).should(\"be.visible\").click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").should(\"be.visible\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").should(\"be.visible\").click();\n  cy.wait(800);\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").should(\"be.visible\").click({\n    force: true\n  });\n});\n// Confirmar cierre del modal\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "e0aa6958-fe63-4a6f-9c7c-96add16104c9",
+                  "parentUUID": "fffeb39b-c603-4bac-855e-3f009ae9c4e3",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e0aa6958-fe63-4a6f-9c7c-96add16104c9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4674,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "beafd348-a118-4b49-aa97-40ee59df6b2a",
+              "title": "Generar Reporte Gastos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Reporte Gastos por fecha",
+                  "fullTitle": "Reportes - Egresos (Beta) Generar Reporte Gastos Debe generar Reporte Gastos por fecha",
+                  "timedOut": null,
+                  "duration": 4718,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Trabajar dentro del modal visible\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si el reporte requiere seleccionar filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click({\n      force: true\n    });\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      cy.get(filtro.id).should(\"be.visible\").click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").should(\"be.visible\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").should(\"be.visible\").click();\n  cy.wait(800);\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").should(\"be.visible\").click({\n    force: true\n  });\n});\n// Confirmar cierre del modal\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "bbd77d6f-12c4-4585-b5eb-55675379d72d",
+                  "parentUUID": "beafd348-a118-4b49-aa97-40ee59df6b2a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bbd77d6f-12c4-4585-b5eb-55675379d72d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4718,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

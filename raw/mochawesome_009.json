@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:17:26.824Z",
+    "end": "2025-12-06T14:17:39.665Z",
+    "duration": 12841,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "11afae96-e428-451a-9436-838fe72c2415",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/GenerarReporteIngreso.cy.js",
+      "file": "cypress/e2e/Ingresos/GenerarReporteIngreso.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "00fa983d-7597-4261-976d-2651245fad17",
+          "title": "Ingresos - Generar Reporte ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe generar reporte: Filtrado por fecha y descargar PDF y XLS",
+              "fullTitle": "Ingresos - Generar Reporte  Debe generar reporte: Filtrado por fecha y descargar PDF y XLS",
+              "timedOut": null,
+              "duration": 8712,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Ingresos ---\ncy.visit(\"/ingresos\");\ncy.url().should(\"include\", \"/ingresos\");\n// --- Abrir modal de Generar Reporte ---\ncy.get('[data-target=\"#generarReporteIngresos\"]').click();\ncy.get(\"#generarReporteIngresos:visible\").should(\"exist\");\n// --- Activar filtro correspondiente ---\ncy.get(\"#generarReporteIngresos:visible\").within(() => {\n  cy.get(`button[onclick=\"mostrarFiltro('${filtro.tipo}')\"]`).click();\n  // --- Ingresar valores según tipo de filtro ---\n  if (filtro.tipo === \"fecha\") {\n    cy.get(\"#fecha-inicial\").clear().type(filtro.inicial);\n    cy.get(\"#fecha-final\").clear().type(filtro.final);\n  } else if (filtro.tipo === \"registro\") {\n    cy.get(\"#registro-inicial\").clear().type(filtro.inicial);\n    cy.get(\"#registro-final\").clear().type(filtro.final);\n  }\n  // --- Descargar PDF ---\n  cy.get('img[src*=\"pdf.png\"]').first().click();\n  // --- Descargar XML ---\n  cy.get('img[src*=\"xls.png\"]').first().click();\n});\n// --- Cerrar modal ---\ncy.get(\"#generarReporteIngresos .close\").click();\n// --- Pequeña espera para evitar bloqueos de UI ---\ncy.wait(500);",
+              "err": {},
+              "uuid": "562a9b32-c321-4cc3-81cb-bb206b8ef364",
+              "parentUUID": "00fa983d-7597-4261-976d-2651245fad17",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe generar reporte: Filtrado por número de registro y descargar PDF y XLS",
+              "fullTitle": "Ingresos - Generar Reporte  Debe generar reporte: Filtrado por número de registro y descargar PDF y XLS",
+              "timedOut": null,
+              "duration": 4065,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Ingresos ---\ncy.visit(\"/ingresos\");\ncy.url().should(\"include\", \"/ingresos\");\n// --- Abrir modal de Generar Reporte ---\ncy.get('[data-target=\"#generarReporteIngresos\"]').click();\ncy.get(\"#generarReporteIngresos:visible\").should(\"exist\");\n// --- Activar filtro correspondiente ---\ncy.get(\"#generarReporteIngresos:visible\").within(() => {\n  cy.get(`button[onclick=\"mostrarFiltro('${filtro.tipo}')\"]`).click();\n  // --- Ingresar valores según tipo de filtro ---\n  if (filtro.tipo === \"fecha\") {\n    cy.get(\"#fecha-inicial\").clear().type(filtro.inicial);\n    cy.get(\"#fecha-final\").clear().type(filtro.final);\n  } else if (filtro.tipo === \"registro\") {\n    cy.get(\"#registro-inicial\").clear().type(filtro.inicial);\n    cy.get(\"#registro-final\").clear().type(filtro.final);\n  }\n  // --- Descargar PDF ---\n  cy.get('img[src*=\"pdf.png\"]').first().click();\n  // --- Descargar XML ---\n  cy.get('img[src*=\"xls.png\"]').first().click();\n});\n// --- Cerrar modal ---\ncy.get(\"#generarReporteIngresos .close\").click();\n// --- Pequeña espera para evitar bloqueos de UI ---\ncy.wait(500);",
+              "err": {},
+              "uuid": "f031b19f-3e46-439b-9280-f3a3c3efcb4d",
+              "parentUUID": "00fa983d-7597-4261-976d-2651245fad17",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "562a9b32-c321-4cc3-81cb-bb206b8ef364",
+            "f031b19f-3e46-439b-9280-f3a3c3efcb4d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12777,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

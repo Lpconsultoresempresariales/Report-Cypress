@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:21:10.407Z",
+    "end": "2025-12-06T14:21:18.157Z",
+    "duration": 7750,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "701f7692-b99f-4738-9551-a72768fabe79",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/verComprobante.cy.js",
+      "file": "cypress/e2e/Ingresos/verComprobante.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "adbb6455-879a-40f6-aa3c-552130a8e8fd",
+          "title": "Ingresos - Ver comprobante",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe abrir el comprobante del primer ingreso y validar botones",
+              "fullTitle": "Ingresos - Ver comprobante Debe abrir el comprobante del primer ingreso y validar botones",
+              "timedOut": null,
+              "duration": 7699,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Ingresos ---\ncy.visit(\"/ingresos\");\n// --- Abrir comprobante del primer ingreso ---\ncy.get('button[data-toggle=\"modal\"][data-target^=\"#comprobante-\"]').first().click();\n// --- Validar que se muestra el modal ---\ncy.get('div[aria-labelledby=\"comprobanteLabel\"]:visible').should(\"be.visible\").within(() => {\n  // --- Botón PDF ---\n  cy.get(\"#generatePdfBtn\").should(\"be.visible\").click();\n  // --- Botón Tirilla térmica ---\n  cy.get(\"#generateThermalPdfBtn\").should(\"be.visible\").click();\n  // --- Botón Cerrar ---\n  cy.contains('button[data-dismiss=\"modal\"]', \"Cerrar\").should(\"be.visible\").click();\n});\n// --- Verificar que el modal se cerró ---\ncy.get('div[aria-labelledby=\"comprobanteLabel\"]:visible').should(\"not.exist\");",
+              "err": {},
+              "uuid": "aae95476-60f2-49a6-b4ea-ebffbbfd23c2",
+              "parentUUID": "adbb6455-879a-40f6-aa3c-552130a8e8fd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aae95476-60f2-49a6-b4ea-ebffbbfd23c2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7699,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

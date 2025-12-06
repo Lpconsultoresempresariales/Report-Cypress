@@ -1,0 +1,165 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:17:41.305Z",
+    "end": "2025-12-06T14:17:59.375Z",
+    "duration": 18070,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e4d1bd7d-638e-4343-8599-3ba76ce34383",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/Gestionar1Cotizaciones.cy.js",
+      "file": "cypress/e2e/Ingresos/Gestionar1Cotizaciones.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5bfbf7ed-bfd9-4b96-ac9b-e1699ee787bc",
+          "title": "Ingresos - Generar Cotización",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe crear cotización para Cliente A con IVA no_aplica",
+              "fullTitle": "Ingresos - Generar Cotización Debe crear cotización para Cliente A con IVA no_aplica",
+              "timedOut": null,
+              "duration": 7805,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir modal\ncy.get('button[onclick=\"abrirModalCrearCotizacion()\"]').click();\ncy.get(\"#modalCrearCotizacion\").should(\"be.visible\");\n// Seleccionar cliente\ncy.get('#modalCrearCotizacion input[name=\"cliente\"]').clear().type(escenario.cliente);\n// Llenar campos restantes\ncy.get('#modalCrearCotizacion input[name=\"descripcion\"]').clear().type(escenario.descripcion);\n// -- codigo del producto --\ncy.get(\"#modalCrearCotizacion .cotizacion-select-input\").click();\ncy.get(`#modalCrearCotizacion .cotizacion-select-option[data-codigo=\"${escenario.producto}\"]`).click({\n  force: true\n});\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descripcion]\"]').clear().type(escenario.productoDescripcion);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][cantidad]\"]').clear().type(escenario.cantidad);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descuento]\"]').clear().type(escenario.descuento);\ncy.get('#modalCrearCotizacion select[name=\"productosCotizacion[1][iva]\"]').select(escenario.iva);\n// Guardar / Cerrar modal\ncy.get(\"#modalCrearCotizacion div.modal-footer.bg-light\").find(\"button.btn.btn-success\").click();\n// Esperar y cerrar SweetAlert2 usando el botón \"Entendido\"\ncy.get(\".swal2-container\", {\n  timeout: 10000\n}).should(\"not.be.visible\");\n// Validar que la cotización aparece en la tabla\ncy.get(\".table-cotizaciones\") // tabla donde se listan las cotizaciones\n.find(\"span.badge.badge-light.border.font-weight-semibold.text-primary\").last() // tomar la última cotización creada\n.invoke(\"text\").then(codigo => {\n  // Validar que la tabla contiene ese código\n  cy.get(\".table-cotizaciones\").should(\"contain.text\", codigo);\n});",
+              "err": {},
+              "uuid": "0c987114-d993-4e48-94d6-37e33ce3788e",
+              "parentUUID": "5bfbf7ed-bfd9-4b96-ac9b-e1699ee787bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe crear cotización para Cliente B con IVA 0",
+              "fullTitle": "Ingresos - Generar Cotización Debe crear cotización para Cliente B con IVA 0",
+              "timedOut": null,
+              "duration": 3377,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir modal\ncy.get('button[onclick=\"abrirModalCrearCotizacion()\"]').click();\ncy.get(\"#modalCrearCotizacion\").should(\"be.visible\");\n// Seleccionar cliente\ncy.get('#modalCrearCotizacion input[name=\"cliente\"]').clear().type(escenario.cliente);\n// Llenar campos restantes\ncy.get('#modalCrearCotizacion input[name=\"descripcion\"]').clear().type(escenario.descripcion);\n// -- codigo del producto --\ncy.get(\"#modalCrearCotizacion .cotizacion-select-input\").click();\ncy.get(`#modalCrearCotizacion .cotizacion-select-option[data-codigo=\"${escenario.producto}\"]`).click({\n  force: true\n});\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descripcion]\"]').clear().type(escenario.productoDescripcion);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][cantidad]\"]').clear().type(escenario.cantidad);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descuento]\"]').clear().type(escenario.descuento);\ncy.get('#modalCrearCotizacion select[name=\"productosCotizacion[1][iva]\"]').select(escenario.iva);\n// Guardar / Cerrar modal\ncy.get(\"#modalCrearCotizacion div.modal-footer.bg-light\").find(\"button.btn.btn-success\").click();\n// Esperar y cerrar SweetAlert2 usando el botón \"Entendido\"\ncy.get(\".swal2-container\", {\n  timeout: 10000\n}).should(\"not.be.visible\");\n// Validar que la cotización aparece en la tabla\ncy.get(\".table-cotizaciones\") // tabla donde se listan las cotizaciones\n.find(\"span.badge.badge-light.border.font-weight-semibold.text-primary\").last() // tomar la última cotización creada\n.invoke(\"text\").then(codigo => {\n  // Validar que la tabla contiene ese código\n  cy.get(\".table-cotizaciones\").should(\"contain.text\", codigo);\n});",
+              "err": {},
+              "uuid": "dcbc67c1-07cb-4ace-ae86-231849d5ec33",
+              "parentUUID": "5bfbf7ed-bfd9-4b96-ac9b-e1699ee787bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe crear cotización para Cliente C con IVA 5",
+              "fullTitle": "Ingresos - Generar Cotización Debe crear cotización para Cliente C con IVA 5",
+              "timedOut": null,
+              "duration": 3397,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir modal\ncy.get('button[onclick=\"abrirModalCrearCotizacion()\"]').click();\ncy.get(\"#modalCrearCotizacion\").should(\"be.visible\");\n// Seleccionar cliente\ncy.get('#modalCrearCotizacion input[name=\"cliente\"]').clear().type(escenario.cliente);\n// Llenar campos restantes\ncy.get('#modalCrearCotizacion input[name=\"descripcion\"]').clear().type(escenario.descripcion);\n// -- codigo del producto --\ncy.get(\"#modalCrearCotizacion .cotizacion-select-input\").click();\ncy.get(`#modalCrearCotizacion .cotizacion-select-option[data-codigo=\"${escenario.producto}\"]`).click({\n  force: true\n});\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descripcion]\"]').clear().type(escenario.productoDescripcion);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][cantidad]\"]').clear().type(escenario.cantidad);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descuento]\"]').clear().type(escenario.descuento);\ncy.get('#modalCrearCotizacion select[name=\"productosCotizacion[1][iva]\"]').select(escenario.iva);\n// Guardar / Cerrar modal\ncy.get(\"#modalCrearCotizacion div.modal-footer.bg-light\").find(\"button.btn.btn-success\").click();\n// Esperar y cerrar SweetAlert2 usando el botón \"Entendido\"\ncy.get(\".swal2-container\", {\n  timeout: 10000\n}).should(\"not.be.visible\");\n// Validar que la cotización aparece en la tabla\ncy.get(\".table-cotizaciones\") // tabla donde se listan las cotizaciones\n.find(\"span.badge.badge-light.border.font-weight-semibold.text-primary\").last() // tomar la última cotización creada\n.invoke(\"text\").then(codigo => {\n  // Validar que la tabla contiene ese código\n  cy.get(\".table-cotizaciones\").should(\"contain.text\", codigo);\n});",
+              "err": {},
+              "uuid": "563cc9f7-81c9-45f5-b1e2-b8d01035f5ad",
+              "parentUUID": "5bfbf7ed-bfd9-4b96-ac9b-e1699ee787bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe crear cotización para Cliente D con IVA 19",
+              "fullTitle": "Ingresos - Generar Cotización Debe crear cotización para Cliente D con IVA 19",
+              "timedOut": null,
+              "duration": 3348,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir modal\ncy.get('button[onclick=\"abrirModalCrearCotizacion()\"]').click();\ncy.get(\"#modalCrearCotizacion\").should(\"be.visible\");\n// Seleccionar cliente\ncy.get('#modalCrearCotizacion input[name=\"cliente\"]').clear().type(escenario.cliente);\n// Llenar campos restantes\ncy.get('#modalCrearCotizacion input[name=\"descripcion\"]').clear().type(escenario.descripcion);\n// -- codigo del producto --\ncy.get(\"#modalCrearCotizacion .cotizacion-select-input\").click();\ncy.get(`#modalCrearCotizacion .cotizacion-select-option[data-codigo=\"${escenario.producto}\"]`).click({\n  force: true\n});\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descripcion]\"]').clear().type(escenario.productoDescripcion);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][cantidad]\"]').clear().type(escenario.cantidad);\ncy.get('#modalCrearCotizacion input[name=\"productosCotizacion[1][descuento]\"]').clear().type(escenario.descuento);\ncy.get('#modalCrearCotizacion select[name=\"productosCotizacion[1][iva]\"]').select(escenario.iva);\n// Guardar / Cerrar modal\ncy.get(\"#modalCrearCotizacion div.modal-footer.bg-light\").find(\"button.btn.btn-success\").click();\n// Esperar y cerrar SweetAlert2 usando el botón \"Entendido\"\ncy.get(\".swal2-container\", {\n  timeout: 10000\n}).should(\"not.be.visible\");\n// Validar que la cotización aparece en la tabla\ncy.get(\".table-cotizaciones\") // tabla donde se listan las cotizaciones\n.find(\"span.badge.badge-light.border.font-weight-semibold.text-primary\").last() // tomar la última cotización creada\n.invoke(\"text\").then(codigo => {\n  // Validar que la tabla contiene ese código\n  cy.get(\".table-cotizaciones\").should(\"contain.text\", codigo);\n});",
+              "err": {},
+              "uuid": "5dbdad74-8a91-4779-922e-c224fcd718b9",
+              "parentUUID": "5bfbf7ed-bfd9-4b96-ac9b-e1699ee787bc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0c987114-d993-4e48-94d6-37e33ce3788e",
+            "dcbc67c1-07cb-4ace-ae86-231849d5ec33",
+            "563cc9f7-81c9-45f5-b1e2-b8d01035f5ad",
+            "5dbdad74-8a91-4779-922e-c224fcd718b9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17927,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

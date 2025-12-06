@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:14:20.537Z",
+    "end": "2025-12-06T14:14:33.923Z",
+    "duration": 13386,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0c7ed6e8-b28b-4a9e-af4f-cd67710f4682",
+      "title": "",
+      "fullFile": "cypress/e2e/Egresos/GenerarReporteEgreso.cy.js",
+      "file": "cypress/e2e/Egresos/GenerarReporteEgreso.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "760f5c74-844a-406a-b291-f4f665c7de49",
+          "title": "Egresos - Generar Reporte ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe generar reporte de egresos: Filtrado por fecha y descargar PDF y XLS",
+              "fullTitle": "Egresos - Generar Reporte  Debe generar reporte de egresos: Filtrado por fecha y descargar PDF y XLS",
+              "timedOut": null,
+              "duration": 9547,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Paso 1: Ir al módulo de Egresos ---\ncy.visit(\"/egresos\");\ncy.url().should(\"include\", \"/egresos\");\n// --- Paso 2: Abrir modal de Generar Reporte ---\ncy.get('button[data-target=\"#generarReporteEgresosReportes\"]').click();\ncy.get(\"#generarReporteEgresosReportes:visible\").should(\"exist\");\n// --- Paso 3: Activar filtro correspondiente ---\ncy.get(\"#generarReporteEgresosReportes:visible\").within(() => {\n  cy.get(`button[onclick=\"mostrarFiltroReportes('${filtro.tipo}')\"]`).click();\n  // --- Ingresar valores según tipo de filtro ---\n  if (filtro.tipo === \"fecha\") {\n    cy.get(\"#fecha-inicial-reportes\").clear().type(filtro.inicial);\n    cy.get(\"#fecha-final-reportes\").clear().type(filtro.final);\n  } else if (filtro.tipo === \"registro\") {\n    cy.get(\"#registro-inicial-reportes\").clear().type(filtro.inicial);\n    cy.get(\"#registro-final-reportes\").clear().type(filtro.final);\n  }\n  // --- Descargar PDF ---\n  cy.get('img[src*=\"pdf.png\"]').first().click();\n  // --- Descargar XML (opcional) ---\n  cy.get('img[src*=\"xls.png\"]').first().click();\n});\n// --- Cerrar modal si sigue abierto ---\ncy.get(\"#generarReporteEgresosReportes .close\").click();\n// --- Espera pequeña para evitar bloqueos ---\ncy.wait(500);",
+              "err": {},
+              "uuid": "a0d4c866-04a4-443e-b40a-c51f93299e00",
+              "parentUUID": "760f5c74-844a-406a-b291-f4f665c7de49",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe generar reporte de egresos: Filtrado por número de registro y descargar PDF y XLS",
+              "fullTitle": "Egresos - Generar Reporte  Debe generar reporte de egresos: Filtrado por número de registro y descargar PDF y XLS",
+              "timedOut": null,
+              "duration": 3777,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Paso 1: Ir al módulo de Egresos ---\ncy.visit(\"/egresos\");\ncy.url().should(\"include\", \"/egresos\");\n// --- Paso 2: Abrir modal de Generar Reporte ---\ncy.get('button[data-target=\"#generarReporteEgresosReportes\"]').click();\ncy.get(\"#generarReporteEgresosReportes:visible\").should(\"exist\");\n// --- Paso 3: Activar filtro correspondiente ---\ncy.get(\"#generarReporteEgresosReportes:visible\").within(() => {\n  cy.get(`button[onclick=\"mostrarFiltroReportes('${filtro.tipo}')\"]`).click();\n  // --- Ingresar valores según tipo de filtro ---\n  if (filtro.tipo === \"fecha\") {\n    cy.get(\"#fecha-inicial-reportes\").clear().type(filtro.inicial);\n    cy.get(\"#fecha-final-reportes\").clear().type(filtro.final);\n  } else if (filtro.tipo === \"registro\") {\n    cy.get(\"#registro-inicial-reportes\").clear().type(filtro.inicial);\n    cy.get(\"#registro-final-reportes\").clear().type(filtro.final);\n  }\n  // --- Descargar PDF ---\n  cy.get('img[src*=\"pdf.png\"]').first().click();\n  // --- Descargar XML (opcional) ---\n  cy.get('img[src*=\"xls.png\"]').first().click();\n});\n// --- Cerrar modal si sigue abierto ---\ncy.get(\"#generarReporteEgresosReportes .close\").click();\n// --- Espera pequeña para evitar bloqueos ---\ncy.wait(500);",
+              "err": {},
+              "uuid": "4cfcc959-72f9-467c-a5dc-7e4ba4c8169a",
+              "parentUUID": "760f5c74-844a-406a-b291-f4f665c7de49",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a0d4c866-04a4-443e-b40a-c51f93299e00",
+            "4cfcc959-72f9-467c-a5dc-7e4ba4c8169a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13324,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

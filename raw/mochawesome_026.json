@@ -1,0 +1,320 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:23:52.124Z",
+    "end": "2025-12-06T14:24:40.790Z",
+    "duration": 48666,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "36ec8f24-c5a0-4abf-92fc-dcd7a8f094b7",
+      "title": "",
+      "fullFile": "cypress/e2e/Reportes/3. cartera.cy.js",
+      "file": "cypress/e2e/Reportes/3. cartera.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "37a59404-6f58-4a93-a48b-fff201b73799",
+          "title": "Reportes - Cartera (Beta)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "f92d9d7d-761f-4895-abeb-853ef1eb935d",
+              "title": "Generar Cuentas por Cobrar",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Cuentas por Cobrar por fecha",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Cuentas por Cobrar Debe generar Cuentas por Cobrar por fecha",
+                  "timedOut": null,
+                  "duration": 9614,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "7b92ca28-8611-4998-9c33-45194108065e",
+                  "parentUUID": "f92d9d7d-761f-4895-abeb-853ef1eb935d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Debe generar Cuentas por Cobrar por tercero",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Cuentas por Cobrar Debe generar Cuentas por Cobrar por tercero",
+                  "timedOut": null,
+                  "duration": 4381,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "54d9a686-7f4b-48d9-8a29-a7df6b5473d7",
+                  "parentUUID": "f92d9d7d-761f-4895-abeb-853ef1eb935d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7b92ca28-8611-4998-9c33-45194108065e",
+                "54d9a686-7f4b-48d9-8a29-a7df6b5473d7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 13995,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "bb850c02-2d06-43d8-b0d0-3212e33c3b94",
+              "title": "Generar Reportes de Abonos - Cuentas por Cobrar",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Reportes de Abonos - Cuentas por Cobrar por fecha",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Reportes de Abonos - Cuentas por Cobrar Debe generar Reportes de Abonos - Cuentas por Cobrar por fecha",
+                  "timedOut": null,
+                  "duration": 5906,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "e1a9cf30-f7af-4b66-8f49-5e745c33d231",
+                  "parentUUID": "bb850c02-2d06-43d8-b0d0-3212e33c3b94",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Debe generar Reportes de Abonos - Cuentas por Cobrar por tercero",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Reportes de Abonos - Cuentas por Cobrar Debe generar Reportes de Abonos - Cuentas por Cobrar por tercero",
+                  "timedOut": null,
+                  "duration": 5452,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "5a7e40e3-5ee7-42e9-913a-f9243299366e",
+                  "parentUUID": "bb850c02-2d06-43d8-b0d0-3212e33c3b94",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e1a9cf30-f7af-4b66-8f49-5e745c33d231",
+                "5a7e40e3-5ee7-42e9-913a-f9243299366e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 11358,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "057c04a7-6dfb-49e4-b5cb-4ce152e5ef0b",
+              "title": "Generar Reportes de Abonos - Cuentas por Pagar",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Reportes de Abonos - Cuentas por Pagar por fecha",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Reportes de Abonos - Cuentas por Pagar Debe generar Reportes de Abonos - Cuentas por Pagar por fecha",
+                  "timedOut": null,
+                  "duration": 6837,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "3df83bb1-1752-4ae5-a53f-535e3a62b4c5",
+                  "parentUUID": "057c04a7-6dfb-49e4-b5cb-4ce152e5ef0b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Debe generar Reportes de Abonos - Cuentas por Pagar por tercero",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Reportes de Abonos - Cuentas por Pagar Debe generar Reportes de Abonos - Cuentas por Pagar por tercero",
+                  "timedOut": null,
+                  "duration": 6663,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "e260373e-3182-4c45-be40-05ae1d0048d1",
+                  "parentUUID": "057c04a7-6dfb-49e4-b5cb-4ce152e5ef0b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3df83bb1-1752-4ae5-a53f-535e3a62b4c5",
+                "e260373e-3182-4c45-be40-05ae1d0048d1"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 13500,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "c31f811d-4112-43a9-81a0-a54ff34fbf46",
+              "title": "Generar Cuentas por Pagar",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Debe generar Cuentas por Pagar por fecha",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Cuentas por Pagar Debe generar Cuentas por Pagar por fecha",
+                  "timedOut": null,
+                  "duration": 4964,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "3dec9249-df38-41c4-8f8a-5571c6c3d909",
+                  "parentUUID": "c31f811d-4112-43a9-81a0-a54ff34fbf46",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Debe generar Cuentas por Pagar por tercero",
+                  "fullTitle": "Reportes - Cartera (Beta) Generar Cuentas por Pagar Debe generar Cuentas por Pagar por tercero",
+                  "timedOut": null,
+                  "duration": 4534,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Abrir modal\ncy.get(`[data-target='${reporte.dataTarget}']`).click();\ncy.wait(500);\n// Si aplica tipo de abono (cuentas por cobrar/pagar)\nif (reporte.tipoAbono) {\n  cy.get(`[onclick=\"seleccionarTipoAbono('${reporte.tipoAbono}')\"]`).should(\"be.visible\").click();\n  cy.wait(300);\n}\n// Trabajar dentro del modal\ncy.get(\".modal.show\").should(\"be.visible\").within(() => {\n  // Si requiere selección de filtro\n  if (escenario.tieneFiltro && escenario.filtroFuncion) {\n    cy.get(`[onclick=\"${escenario.filtroFuncion}('${escenario.tipo}')\"]`, {\n      timeout: 3000\n    }).click();\n  }\n  // Llenar campos o ejecutar acciones\n  escenario.filtros.forEach(filtro => {\n    if (filtro.accion === \"click\") {\n      if (filtro.id) cy.get(filtro.id).click();\n      if (filtro.class) cy.get(filtro.class).click();\n    } else {\n      cy.get(filtro.id).should(\"be.visible\").clear().type(filtro.valor);\n    }\n  });\n  // Generar PDF y XLS\n  cy.get(\"button[value='pdf']\").click();\n  cy.wait(800);\n  cy.get(\"button[value='xls']\").click();\n  cy.wait(800);\n  // Si es un reporte de abonos, volver al tipo principal\n  if (reporte.tipoAbono) {\n    cy.get(`[onclick=\"regresarTipoAbono()\"]`).click();\n    cy.wait(300);\n  }\n  // Cerrar modal\n  cy.get(\"button[aria-label='Close']\").click();\n});\n// Confirmar cierre\ncy.get(\".modal.show\").should(\"not.exist\");",
+                  "err": {},
+                  "uuid": "919a57b5-38f8-4d9c-83b2-b4f7576f6969",
+                  "parentUUID": "c31f811d-4112-43a9-81a0-a54ff34fbf46",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3dec9249-df38-41c4-8f8a-5571c6c3d909",
+                "919a57b5-38f8-4d9c-83b2-b4f7576f6969"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9498,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

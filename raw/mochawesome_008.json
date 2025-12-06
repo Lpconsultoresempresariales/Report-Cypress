@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:17:14.757Z",
+    "end": "2025-12-06T14:17:25.243Z",
+    "duration": 10486,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c2b485ba-1287-4596-a5b1-e0125198c671",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/EliminarIngreso.cy.js",
+      "file": "cypress/e2e/Ingresos/EliminarIngreso.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "297340ff-0563-4ebe-8bf6-4a85f79948b6",
+          "title": "Eliminar ingreso en LPSMART (segunda página)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe eliminar el noveno ingreso en la segunda página",
+              "fullTitle": "Eliminar ingreso en LPSMART (segunda página) Debe eliminar el noveno ingreso en la segunda página",
+              "timedOut": null,
+              "duration": 10435,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/ingresos\");\n// --- Ir a la segunda página ---\n/*\ncy.get('a.page-link[rel=\"next\"]').click();\ncy.get(\"table tbody tr\").should(\"exist\"); // esperar que carguen filas\n*/\n// --- Click en el noveno botón de eliminar ---\ncy.get('button.btn.btn-danger.btn-sm[data-original-title=\"Eliminar ingreso\"]').eq(9).click();\n// --- Confirmar SweetAlert2 ---\ncy.get(\"div.swal2-popup.swal2-modal.swal2-icon-question.swal2-show\").within(() => {\n  cy.get(\"button.swal2-confirm.swal2-styled\").click();\n});\n// --- Validar que el modal se cerró ---\ncy.get(\"div.swal2-popup\").should(\"not.exist\");\ncy.get(\"div.swal2-loader\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "a6a91ba6-2438-44aa-bd41-b962986e3c40",
+              "parentUUID": "297340ff-0563-4ebe-8bf6-4a85f79948b6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6a91ba6-2438-44aa-bd41-b962986e3c40"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10435,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

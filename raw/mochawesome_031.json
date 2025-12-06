@@ -1,0 +1,165 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:26:00.511Z",
+    "end": "2025-12-06T14:26:28.442Z",
+    "duration": 27931,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "208c0be5-0162-41a2-b9cf-a91bac06d4c8",
+      "title": "",
+      "fullFile": "cypress/e2e/Terceros/EliminarTercero.cy.js",
+      "file": "cypress/e2e/Terceros/EliminarTercero.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "85de5504-8899-4997-a26a-3d8f99e86aa2",
+          "title": "Terceros - Eliminar último tercero agregado",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe eliminar el último clientes agregado",
+              "fullTitle": "Terceros - Eliminar último tercero agregado Debe eliminar el último clientes agregado",
+              "timedOut": null,
+              "duration": 10348,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${categoria}-tab`).click();\ncy.get(`#${categoria}`).find('button[onclick=\"mostrarAlertaEliminar(this)\"]').last().click();\ncy.get(\"div.swal2-popup.swal2-show\").should(\"be.visible\").within(() => {\n  cy.get(\"button.swal2-confirm.swal2-styled\").click();\n});\ncy.get(\"div.swal2-popup\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "05499f9d-b472-4abe-9540-6a67b6ef4e5d",
+              "parentUUID": "85de5504-8899-4997-a26a-3d8f99e86aa2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe eliminar el último proveedores agregado",
+              "fullTitle": "Terceros - Eliminar último tercero agregado Debe eliminar el último proveedores agregado",
+              "timedOut": null,
+              "duration": 5877,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${categoria}-tab`).click();\ncy.get(`#${categoria}`).find('button[onclick=\"mostrarAlertaEliminar(this)\"]').last().click();\ncy.get(\"div.swal2-popup.swal2-show\").should(\"be.visible\").within(() => {\n  cy.get(\"button.swal2-confirm.swal2-styled\").click();\n});\ncy.get(\"div.swal2-popup\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "85658c1f-facb-43c7-abc5-b61449e35208",
+              "parentUUID": "85de5504-8899-4997-a26a-3d8f99e86aa2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe eliminar el último empleados agregado",
+              "fullTitle": "Terceros - Eliminar último tercero agregado Debe eliminar el último empleados agregado",
+              "timedOut": null,
+              "duration": 5806,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${categoria}-tab`).click();\ncy.get(`#${categoria}`).find('button[onclick=\"mostrarAlertaEliminar(this)\"]').last().click();\ncy.get(\"div.swal2-popup.swal2-show\").should(\"be.visible\").within(() => {\n  cy.get(\"button.swal2-confirm.swal2-styled\").click();\n});\ncy.get(\"div.swal2-popup\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "9495c154-b82a-42d0-82e2-01888e7bbaf2",
+              "parentUUID": "85de5504-8899-4997-a26a-3d8f99e86aa2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe eliminar el último otros agregado",
+              "fullTitle": "Terceros - Eliminar último tercero agregado Debe eliminar el último otros agregado",
+              "timedOut": null,
+              "duration": 5738,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/terceros\");\ncy.get(`#${categoria}-tab`).click();\ncy.get(`#${categoria}`).find('button[onclick=\"mostrarAlertaEliminar(this)\"]').last().click();\ncy.get(\"div.swal2-popup.swal2-show\").should(\"be.visible\").within(() => {\n  cy.get(\"button.swal2-confirm.swal2-styled\").click();\n});\ncy.get(\"div.swal2-popup\").should(\"not.exist\");",
+              "err": {},
+              "uuid": "95a6f4d8-fdd5-4c0b-8a48-d28cb13386af",
+              "parentUUID": "85de5504-8899-4997-a26a-3d8f99e86aa2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "05499f9d-b472-4abe-9540-6a67b6ef4e5d",
+            "85658c1f-facb-43c7-abc5-b61449e35208",
+            "9495c154-b82a-42d0-82e2-01888e7bbaf2",
+            "95a6f4d8-fdd5-4c0b-8a48-d28cb13386af"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27769,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

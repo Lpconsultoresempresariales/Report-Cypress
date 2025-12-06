@@ -1,0 +1,146 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:24:42.467Z",
+    "end": "2025-12-06T14:24:52.915Z",
+    "duration": 10448,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "03298c2b-6c1c-4e32-ae1b-37f7409f9623",
+      "title": "",
+      "fullFile": "cypress/e2e/Reportes/4. inventario.cy.js",
+      "file": "cypress/e2e/Reportes/4. inventario.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "87949e04-1c16-4d52-a11e-555b06cc0a93",
+          "title": "Reportes - Inventario",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe estar en el tab de Inventario",
+              "fullTitle": "Reportes - Inventario Debe estar en el tab de Inventario",
+              "timedOut": null,
+              "duration": 5484,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#inventario-tab\").should(\"have.class\", \"active\");",
+              "err": {},
+              "uuid": "61e6c673-1bc6-4880-93a1-706b7e9b363e",
+              "parentUUID": "87949e04-1c16-4d52-a11e-555b06cc0a93",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Generar Movimiento General",
+              "fullTitle": "Reportes - Inventario Generar Movimiento General",
+              "timedOut": null,
+              "duration": 2502,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(`[data-target=\"${reporte.dataTarget}\"]`).click({\n  force: true\n});\nreporte.escenarios.forEach(escenario => {\n  var _escenario$botones;\n  if (escenario.tipo === \"fecha\") {\n    cy.get(escenario.inicial).clear().type(escenario.valores.inicio, {\n      force: true\n    });\n    cy.get(escenario.final).clear().type(escenario.valores.fin, {\n      force: true\n    });\n  }\n  if (escenario.tipo === \"producto\") {\n    // Buscar el producto SH229 en el input de búsqueda\n    cy.get(escenario.search).should(\"be.visible\").and(\"be.visible\").click().clear().type(escenario.valorBusqueda, {\n      delay: 100\n    });\n    // Esperar a que se despliegue el dropdown\n    cy.get(escenario.dropdown, {\n      timeout: 8000\n    }).should(\"exist\").within(() => {\n      //  Buscar y hacer clic en el producto que contenga el código SH229\n      cy.contains(\".producto-code\", escenario.valorBusqueda).should(\"exist\").and(\"be.visible\").click({\n        force: true\n      });\n    });\n    // Verificar que el producto seleccionado contenga el código SH229\n    cy.get(escenario.search).invoke(\"val\").should(\"contain\", escenario.valorBusqueda);\n  }\n  if ((_escenario$botones = escenario.botones) !== null && _escenario$botones !== void 0 && _escenario$botones.length) {\n    escenario.botones.forEach(tipo => {\n      cy.get(`.modal.show button[value=\"${tipo}\"]`).first().click();\n    });\n  }\n});\ncy.get('.modal.show [aria-label=\"Close\"]').last().click();",
+              "err": {},
+              "uuid": "2a92c7c0-89d4-44f0-ab1b-ca046f54748e",
+              "parentUUID": "87949e04-1c16-4d52-a11e-555b06cc0a93",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Generar Valoración Inventario",
+              "fullTitle": "Reportes - Inventario Generar Valoración Inventario",
+              "timedOut": null,
+              "duration": 2373,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(`[data-target=\"${reporte.dataTarget}\"]`).click({\n  force: true\n});\nreporte.escenarios.forEach(escenario => {\n  var _escenario$botones;\n  if (escenario.tipo === \"fecha\") {\n    cy.get(escenario.inicial).clear().type(escenario.valores.inicio, {\n      force: true\n    });\n    cy.get(escenario.final).clear().type(escenario.valores.fin, {\n      force: true\n    });\n  }\n  if (escenario.tipo === \"producto\") {\n    // Buscar el producto SH229 en el input de búsqueda\n    cy.get(escenario.search).should(\"be.visible\").and(\"be.visible\").click().clear().type(escenario.valorBusqueda, {\n      delay: 100\n    });\n    // Esperar a que se despliegue el dropdown\n    cy.get(escenario.dropdown, {\n      timeout: 8000\n    }).should(\"exist\").within(() => {\n      //  Buscar y hacer clic en el producto que contenga el código SH229\n      cy.contains(\".producto-code\", escenario.valorBusqueda).should(\"exist\").and(\"be.visible\").click({\n        force: true\n      });\n    });\n    // Verificar que el producto seleccionado contenga el código SH229\n    cy.get(escenario.search).invoke(\"val\").should(\"contain\", escenario.valorBusqueda);\n  }\n  if ((_escenario$botones = escenario.botones) !== null && _escenario$botones !== void 0 && _escenario$botones.length) {\n    escenario.botones.forEach(tipo => {\n      cy.get(`.modal.show button[value=\"${tipo}\"]`).first().click();\n    });\n  }\n});\ncy.get('.modal.show [aria-label=\"Close\"]').last().click();",
+              "err": {},
+              "uuid": "7620921f-281f-4019-8b9f-99146abcfcc5",
+              "parentUUID": "87949e04-1c16-4d52-a11e-555b06cc0a93",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "61e6c673-1bc6-4880-93a1-706b7e9b363e",
+            "2a92c7c0-89d4-44f0-ab1b-ca046f54748e",
+            "7620921f-281f-4019-8b9f-99146abcfcc5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10359,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

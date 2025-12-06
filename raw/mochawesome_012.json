@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:18:22.531Z",
+    "end": "2025-12-06T14:18:28.090Z",
+    "duration": 5559,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c3827752-4e02-4056-af5a-3b0fb6b2dd22",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/Gestionar3CotizacionesPDF.cy.js",
+      "file": "cypress/e2e/Ingresos/Gestionar3CotizacionesPDF.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5cf74973-9fd1-4345-9a4e-e49b16ab90ba",
+          "title": "Ingresos - Descargar Cotización",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe permitir descargar el PDF de la primera cotización",
+              "fullTitle": "Ingresos - Descargar Cotización Debe permitir descargar el PDF de la primera cotización",
+              "timedOut": null,
+              "duration": 5519,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Tomar la primera fila de la tabla\ncy.get(\".table-cotizaciones tbody tr\").first().within(() => {\n  // Validar que el botón de PDF está visible y tiene title correcto\n  cy.get('a[title=\"Descargar PDF\"]').should(\"be.visible\");\n  // Simular clic (abre el PDF en nueva pestaña o descarga según implementación)\n  cy.get('a[title=\"Descargar PDF\"]').click();\n});",
+              "err": {},
+              "uuid": "43afff74-cdfd-4f1d-b4d4-b18ea0ca0882",
+              "parentUUID": "5cf74973-9fd1-4345-9a4e-e49b16ab90ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "43afff74-cdfd-4f1d-b4d4-b18ea0ca0882"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5519,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:24:54.705Z",
+    "end": "2025-12-06T14:25:03.460Z",
+    "duration": 8755,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b9a99162-2682-4e81-9d27-3e061e309bfa",
+      "title": "",
+      "fullFile": "cypress/e2e/Reportes/5. terceros.cy.js",
+      "file": "cypress/e2e/Reportes/5. terceros.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ea31d533-64b1-4ad1-9ae2-53e4fffda146",
+          "title": "Reportes - Terceros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe estar en el tab de Terceros",
+              "fullTitle": "Reportes - Terceros Debe estar en el tab de Terceros",
+              "timedOut": null,
+              "duration": 5024,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#terceros-tab\").should(\"have.class\", \"active\");",
+              "err": {},
+              "uuid": "057843ba-035e-4b00-9586-f15ff38ebb52",
+              "parentUUID": "ea31d533-64b1-4ad1-9ae2-53e4fffda146",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Generar Reporte Terceros en todos los formatos",
+              "fullTitle": "Reportes - Terceros Generar Reporte Terceros en todos los formatos",
+              "timedOut": null,
+              "duration": 3660,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "reporte.escenarios.forEach(escenario => {\n  escenario.valores.forEach(formato => {\n    // Abrir modal para cada formato\n    cy.get(`[data-target=\"${reporte.dataTarget}\"]`).click({\n      force: true\n    });\n    // Seleccionar formato\n    cy.get(escenario.select).select(formato, {\n      force: true\n    });\n    // Marcar checkboxes\n    escenario.checkboxes.forEach(check => {\n      cy.get(check.id).check({\n        force: true\n      }).should(\"be.checked\");\n    });\n    // Hacer click en Generar\n    cy.get(escenario.botonGenerar).click({\n      force: true\n    });\n    // Cerrar modal\n    cy.get('.modal.show [aria-label=\"Close\"]').last().click({\n      force: true\n    });\n    cy.wait(1000);\n  });\n});",
+              "err": {},
+              "uuid": "e0ac669a-68ef-40a1-bafe-9c32ff2d4086",
+              "parentUUID": "ea31d533-64b1-4ad1-9ae2-53e4fffda146",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "057843ba-035e-4b00-9586-f15ff38ebb52",
+            "e0ac669a-68ef-40a1-bafe-9c32ff2d4086"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8684,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:25:05.053Z",
+    "end": "2025-12-06T14:25:27.018Z",
+    "duration": 21965,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0caa862b-d7c8-4ce4-a1b2-91016b09b762",
+      "title": "",
+      "fullFile": "cypress/e2e/Terceros/1. RegistroTercero.cy.js",
+      "file": "cypress/e2e/Terceros/1. RegistroTercero.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "408a7f81-8adb-4159-9e0e-963119b4bfc0",
+          "title": "Terceros - Registro de nuevos terceros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe registrar un nuevo tercero: Pepito Perez",
+              "fullTitle": "Terceros - Registro de nuevos terceros Debe registrar un nuevo tercero: Pepito Perez",
+              "timedOut": null,
+              "duration": 8749,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Terceros ---\ncy.visit(\"/terceros\");\ncy.url().should(\"include\", \"/terceros\");\n// --- Abrir modal para agregar un nuevo tercero ---\ncy.get('button[data-target=\"#modalAgregarTerceroPuro\"]').click();\ncy.get(\"#modalAgregarTerceroPuro\").should(\"be.visible\");\n// --- Completar formulario ---\ncy.get(\"#categoria\").select(tercero.categoria);\ncy.get(\"#tipo_persona\").select(tercero.tipoPersona);\ncy.get(\"#tipo_iden\").select(tercero.tipoIdentificacion);\ncy.get(\"#num_iden\").clear().type(tercero.numeroIdentificacion);\ncy.get(\"#nombre\").clear().type(tercero.nombre);\ncy.get(\"#correo\").clear().type(tercero.correo);\ncy.get(\"#num_contact\").clear().type(tercero.contacto);\ncy.get(\"#direccion\").clear().type(tercero.direccion);\ncy.get(\"#departamento\").select(tercero.departamento);\ncy.get(\"#ciudad\").select(tercero.ciudad);\n// --- Guardar el tercero ---\ncy.get('#modalAgregarTerceroPuro button[type=\"submit\"].btn.btn-primary').click();\n// --- Validar que el modal desaparezca ---\ncy.get(\"#modalAgregarTerceroPuro\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "6cdd35a3-6aff-400e-afe5-a9b41ab01cb8",
+              "parentUUID": "408a7f81-8adb-4159-9e0e-963119b4bfc0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe registrar un nuevo tercero: Proveedor SAS",
+              "fullTitle": "Terceros - Registro de nuevos terceros Debe registrar un nuevo tercero: Proveedor SAS",
+              "timedOut": null,
+              "duration": 4401,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Terceros ---\ncy.visit(\"/terceros\");\ncy.url().should(\"include\", \"/terceros\");\n// --- Abrir modal para agregar un nuevo tercero ---\ncy.get('button[data-target=\"#modalAgregarTerceroPuro\"]').click();\ncy.get(\"#modalAgregarTerceroPuro\").should(\"be.visible\");\n// --- Completar formulario ---\ncy.get(\"#categoria\").select(tercero.categoria);\ncy.get(\"#tipo_persona\").select(tercero.tipoPersona);\ncy.get(\"#tipo_iden\").select(tercero.tipoIdentificacion);\ncy.get(\"#num_iden\").clear().type(tercero.numeroIdentificacion);\ncy.get(\"#nombre\").clear().type(tercero.nombre);\ncy.get(\"#correo\").clear().type(tercero.correo);\ncy.get(\"#num_contact\").clear().type(tercero.contacto);\ncy.get(\"#direccion\").clear().type(tercero.direccion);\ncy.get(\"#departamento\").select(tercero.departamento);\ncy.get(\"#ciudad\").select(tercero.ciudad);\n// --- Guardar el tercero ---\ncy.get('#modalAgregarTerceroPuro button[type=\"submit\"].btn.btn-primary').click();\n// --- Validar que el modal desaparezca ---\ncy.get(\"#modalAgregarTerceroPuro\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "ea8cdb3d-eae4-4203-9c36-82e55b39edf7",
+              "parentUUID": "408a7f81-8adb-4159-9e0e-963119b4bfc0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe registrar un nuevo tercero: Juan Pérez",
+              "fullTitle": "Terceros - Registro de nuevos terceros Debe registrar un nuevo tercero: Juan Pérez",
+              "timedOut": null,
+              "duration": 4280,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Terceros ---\ncy.visit(\"/terceros\");\ncy.url().should(\"include\", \"/terceros\");\n// --- Abrir modal para agregar un nuevo tercero ---\ncy.get('button[data-target=\"#modalAgregarTerceroPuro\"]').click();\ncy.get(\"#modalAgregarTerceroPuro\").should(\"be.visible\");\n// --- Completar formulario ---\ncy.get(\"#categoria\").select(tercero.categoria);\ncy.get(\"#tipo_persona\").select(tercero.tipoPersona);\ncy.get(\"#tipo_iden\").select(tercero.tipoIdentificacion);\ncy.get(\"#num_iden\").clear().type(tercero.numeroIdentificacion);\ncy.get(\"#nombre\").clear().type(tercero.nombre);\ncy.get(\"#correo\").clear().type(tercero.correo);\ncy.get(\"#num_contact\").clear().type(tercero.contacto);\ncy.get(\"#direccion\").clear().type(tercero.direccion);\ncy.get(\"#departamento\").select(tercero.departamento);\ncy.get(\"#ciudad\").select(tercero.ciudad);\n// --- Guardar el tercero ---\ncy.get('#modalAgregarTerceroPuro button[type=\"submit\"].btn.btn-primary').click();\n// --- Validar que el modal desaparezca ---\ncy.get(\"#modalAgregarTerceroPuro\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "c31d5751-64e2-4249-a5f7-3da68f42431b",
+              "parentUUID": "408a7f81-8adb-4159-9e0e-963119b4bfc0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe registrar un nuevo tercero: Organización XYZ",
+              "fullTitle": "Terceros - Registro de nuevos terceros Debe registrar un nuevo tercero: Organización XYZ",
+              "timedOut": null,
+              "duration": 4375,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Terceros ---\ncy.visit(\"/terceros\");\ncy.url().should(\"include\", \"/terceros\");\n// --- Abrir modal para agregar un nuevo tercero ---\ncy.get('button[data-target=\"#modalAgregarTerceroPuro\"]').click();\ncy.get(\"#modalAgregarTerceroPuro\").should(\"be.visible\");\n// --- Completar formulario ---\ncy.get(\"#categoria\").select(tercero.categoria);\ncy.get(\"#tipo_persona\").select(tercero.tipoPersona);\ncy.get(\"#tipo_iden\").select(tercero.tipoIdentificacion);\ncy.get(\"#num_iden\").clear().type(tercero.numeroIdentificacion);\ncy.get(\"#nombre\").clear().type(tercero.nombre);\ncy.get(\"#correo\").clear().type(tercero.correo);\ncy.get(\"#num_contact\").clear().type(tercero.contacto);\ncy.get(\"#direccion\").clear().type(tercero.direccion);\ncy.get(\"#departamento\").select(tercero.departamento);\ncy.get(\"#ciudad\").select(tercero.ciudad);\n// --- Guardar el tercero ---\ncy.get('#modalAgregarTerceroPuro button[type=\"submit\"].btn.btn-primary').click();\n// --- Validar que el modal desaparezca ---\ncy.get(\"#modalAgregarTerceroPuro\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "30bc5e56-2c17-4eeb-bc59-ebe5ebf7a6fa",
+              "parentUUID": "408a7f81-8adb-4159-9e0e-963119b4bfc0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6cdd35a3-6aff-400e-afe5-a9b41ab01cb8",
+            "ea8cdb3d-eae4-4203-9c36-82e55b39edf7",
+            "c31d5751-64e2-4249-a5f7-3da68f42431b",
+            "30bc5e56-2c17-4eeb-bc59-ebe5ebf7a6fa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21805,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:15:55.443Z",
+    "end": "2025-12-06T14:16:02.305Z",
+    "duration": 6862,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "330111bc-ed7d-4efe-a0d6-f99e3dd3147d",
+      "title": "",
+      "fullFile": "cypress/e2e/Egresos/VerHistorialAbonos.cy.js",
+      "file": "cypress/e2e/Egresos/VerHistorialAbonos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fd1a4285-9c65-4d9d-a3a2-e23d5953a04c",
+          "title": "Cuentas por pagar - Egresos: Ver historial de abonos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe abrir el historial de abonos de un registro",
+              "fullTitle": "Cuentas por pagar - Egresos: Ver historial de abonos Debe abrir el historial de abonos de un registro",
+              "timedOut": null,
+              "duration": 6810,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Paso 1: Ir al módulo de cuentas por pagar (egresos) ---\ncy.visit(\"/cuentaspagar-egresos\");\n// --- Paso 2: Abrir el historial del primer registro disponible ---\ncy.get('button[onclick^=\"verHistorial\"]').first().click();\n// --- Paso 3: Verificar que se muestra el modal de historial ---\ncy.get(\"div#modalHistorial:visible\").should(\"exist\");",
+              "err": {},
+              "uuid": "99507ac0-e28a-45b8-8d6a-70e62d4d6dc2",
+              "parentUUID": "fd1a4285-9c65-4d9d-a3a2-e23d5953a04c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "99507ac0-e28a-45b8-8d6a-70e62d4d6dc2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6810,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

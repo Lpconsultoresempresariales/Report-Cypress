@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:22:22.275Z",
+    "end": "2025-12-06T14:22:35.228Z",
+    "duration": 12953,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f5baf91c-0901-40bc-b354-acc381f54cab",
+      "title": "",
+      "fullFile": "cypress/e2e/Productos/ModificacionInventario.cy.js",
+      "file": "cypress/e2e/Productos/ModificacionInventario.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aa5430fb-5904-432c-b6cb-077729953f94",
+          "title": "Modificación de Inventario",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe modificar el inventario del segundo producto: aumenta",
+              "fullTitle": "Modificación de Inventario Debe modificar el inventario del segundo producto: aumenta",
+              "timedOut": null,
+              "duration": 8556,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Inventario ---\ncy.visit(\"/inventario\");\ncy.url().should(\"include\", \"/inventario\");\n// --- Seleccionar la segunda fila de la tabla por clase y abrir modal de edición ---\ncy.get('button[data-original-title=\"Editar inventario\"]').eq(1).click();\n// --- Completar el modal de edición ---\ncy.get(\"#modalAjusteInventario\").should(\"be.visible\").within(() => {\n  const responsable = \"Andres Perez\";\n  cy.get('input[name=\"responsable\"]').clear().type(responsable);\n  cy.get(\"select#tipoAjuste\").select(escenario.tipoAjuste);\n  cy.get('input[name=\"cantidad\"]').clear().type(escenario.cantidad);\n  cy.get('input[name=\"precio\"]').clear().type(escenario.precio);\n  cy.get('textarea[name=\"observaciones\"]').clear().type(escenario.observaciones);\n  // --- Guardar cambios ---\n  cy.get('button[type=\"submit\"].btn.btn-primary').click();\n});\n// --- Validar que el modal se cerró ---\ncy.get(\"#modalAjusteInventario\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "3653f2df-a1c5-4d9e-9aca-ad57796cfcc7",
+              "parentUUID": "aa5430fb-5904-432c-b6cb-077729953f94",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe modificar el inventario del segundo producto: disminuye",
+              "fullTitle": "Modificación de Inventario Debe modificar el inventario del segundo producto: disminuye",
+              "timedOut": null,
+              "duration": 4296,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Ir al módulo de Inventario ---\ncy.visit(\"/inventario\");\ncy.url().should(\"include\", \"/inventario\");\n// --- Seleccionar la segunda fila de la tabla por clase y abrir modal de edición ---\ncy.get('button[data-original-title=\"Editar inventario\"]').eq(1).click();\n// --- Completar el modal de edición ---\ncy.get(\"#modalAjusteInventario\").should(\"be.visible\").within(() => {\n  const responsable = \"Andres Perez\";\n  cy.get('input[name=\"responsable\"]').clear().type(responsable);\n  cy.get(\"select#tipoAjuste\").select(escenario.tipoAjuste);\n  cy.get('input[name=\"cantidad\"]').clear().type(escenario.cantidad);\n  cy.get('input[name=\"precio\"]').clear().type(escenario.precio);\n  cy.get('textarea[name=\"observaciones\"]').clear().type(escenario.observaciones);\n  // --- Guardar cambios ---\n  cy.get('button[type=\"submit\"].btn.btn-primary').click();\n});\n// --- Validar que el modal se cerró ---\ncy.get(\"#modalAjusteInventario\").should(\"not.be.visible\");",
+              "err": {},
+              "uuid": "57afbab8-fe50-4942-a17a-ab581f86a116",
+              "parentUUID": "aa5430fb-5904-432c-b6cb-077729953f94",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3653f2df-a1c5-4d9e-9aca-ad57796cfcc7",
+            "57afbab8-fe50-4942-a17a-ab581f86a116"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12852,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

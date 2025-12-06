@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-06T14:16:04.003Z",
+    "end": "2025-12-06T14:16:18.198Z",
+    "duration": 14195,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d30b0622-3be5-4027-ba4a-8001c6fe921e",
+      "title": "",
+      "fullFile": "cypress/e2e/Ingresos/AbonoCuentasCobrar.cy.js",
+      "file": "cypress/e2e/Ingresos/AbonoCuentasCobrar.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a8ceb6db-34a6-4b11-9049-bb8986cd3e18",
+          "title": "Cuentas por cobrar - Realizar abono ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe realizar abonos con medio de pago: Efectivo",
+              "fullTitle": "Cuentas por cobrar - Realizar abono  Debe realizar abonos con medio de pago: Efectivo",
+              "timedOut": null,
+              "duration": 9411,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Iterar sobre cada abono ---\n// --- Paso 1: Navegar a módulo de Cuentas por cobrar ---\ncy.visit(\"/cuentaspagar\");\n// --- Paso 2: Seleccionar la primera fila de la tabla ---\ncy.get(\"td.dtr-control.sorting_1\").first().click();\n// --- Paso 3: Abrir modal de abono ---\ncy.get('button[onclick^=\"window.abrirModalAbono\"]', {\n  timeout: 10000\n}).should(\"be.visible\").first().click();\n// --- Paso 4: Completar modal ---\ncy.get(\".modal-dialog:visible\").within(() => {\n  // --- Ingresar monto del abono ---\n  cy.get(\"#montoAbono\").clear().type(abono.monto);\n  // --- Seleccionar medio de pago ---\n  cy.get(\"#medioPago\").select(abono.medioPago);\n  // --- Si es transferencia, seleccionar tipo de transferencia ---\n  if (abono.medioPago === \"Transferencia\") {\n    cy.get(\"#tipoTransferencia\").select(abono.tipoTransferencia);\n  }\n  // --- Confirmar abono ---\n  cy.get('button[onclick=\"confirmarAbono()\"]').click();\n});\n// --- Paso 5: Confirmar SweetAlert2 ---\ncy.get(\".swal2-popup:visible\").within(() => {\n  cy.get(\"button.swal2-confirm\").click();\n});\n// --- Paso 6: Validar que el modal se cerró ---\ncy.get(\".modal-dialog\", {\n  timeout: 10000\n}).should(\"not.be.visible\");\n// --- Espera breve antes de la siguiente iteración ---\ncy.wait(500);",
+              "err": {},
+              "uuid": "383062bd-e015-4da2-8f04-155e01c2b006",
+              "parentUUID": "a8ceb6db-34a6-4b11-9049-bb8986cd3e18",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe realizar abonos con medio de pago: Transferencia",
+              "fullTitle": "Cuentas por cobrar - Realizar abono  Debe realizar abonos con medio de pago: Transferencia",
+              "timedOut": null,
+              "duration": 4724,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// --- Iterar sobre cada abono ---\n// --- Paso 1: Navegar a módulo de Cuentas por cobrar ---\ncy.visit(\"/cuentaspagar\");\n// --- Paso 2: Seleccionar la primera fila de la tabla ---\ncy.get(\"td.dtr-control.sorting_1\").first().click();\n// --- Paso 3: Abrir modal de abono ---\ncy.get('button[onclick^=\"window.abrirModalAbono\"]', {\n  timeout: 10000\n}).should(\"be.visible\").first().click();\n// --- Paso 4: Completar modal ---\ncy.get(\".modal-dialog:visible\").within(() => {\n  // --- Ingresar monto del abono ---\n  cy.get(\"#montoAbono\").clear().type(abono.monto);\n  // --- Seleccionar medio de pago ---\n  cy.get(\"#medioPago\").select(abono.medioPago);\n  // --- Si es transferencia, seleccionar tipo de transferencia ---\n  if (abono.medioPago === \"Transferencia\") {\n    cy.get(\"#tipoTransferencia\").select(abono.tipoTransferencia);\n  }\n  // --- Confirmar abono ---\n  cy.get('button[onclick=\"confirmarAbono()\"]').click();\n});\n// --- Paso 5: Confirmar SweetAlert2 ---\ncy.get(\".swal2-popup:visible\").within(() => {\n  cy.get(\"button.swal2-confirm\").click();\n});\n// --- Paso 6: Validar que el modal se cerró ---\ncy.get(\".modal-dialog\", {\n  timeout: 10000\n}).should(\"not.be.visible\");\n// --- Espera breve antes de la siguiente iteración ---\ncy.wait(500);",
+              "err": {},
+              "uuid": "8ea34231-0ddc-4784-b164-de9b2fc0401a",
+              "parentUUID": "a8ceb6db-34a6-4b11-9049-bb8986cd3e18",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "383062bd-e015-4da2-8f04-155e01c2b006",
+            "8ea34231-0ddc-4784-b164-de9b2fc0401a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14135,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

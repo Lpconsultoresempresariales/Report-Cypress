@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-12-06T14:21:51.591Z",
+    "end": "2025-12-06T14:22:09.282Z",
+    "duration": 17691,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "65b41273-a55d-4e0b-93e6-9229f78ea836",
+      "title": "",
+      "fullFile": "cypress/e2e/Productos/EditarProductos.cy.js",
+      "file": "cypress/e2e/Productos/EditarProductos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e6704c6c-f570-4e05-a811-3c2869994d4f",
+          "title": "Productos: Editar producto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Editar un producto existente de forma limpia",
+              "fullTitle": "Productos: Editar producto Editar un producto existente de forma limpia",
+              "timedOut": null,
+              "duration": 17618,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// --- Variables del producto a editar ---\nconst nuevoCodigo = \"COD-EDIT-001\";\nconst nuevoNombre = \"Producto Editado Test\";\nconst nuevaDescripcion = \"Este es un producto editado desde Cypress\";\nconst nuevoPrecio = \"25000\";\n// --- Abrir menú Gestión Financiera ---\ncy.visit(\"/productos\");\n// --- Validar que estamos en la página de Productos ---\ncy.url().should(\"include\", \"/productos\");\n// --- Abrir el primer modal de edición disponible ---\ncy.get('button[data-target^=\"#productoModalEdit-\"]').first().click();\n// --- Trabajar dentro del modal ---\ncy.get(\"div.modal.fade.show:visible\").within(() => {\n  // --- Editar código ---\n  cy.get(\"input[id^='editCodigoProducto']\").should(\"be.visible\").click().clear().type(nuevoCodigo, {\n    delay: 50\n  });\n  // --- Editar nombre ---\n  cy.get(\"input[id^='editNombreProducto']\").should(\"be.visible\").click().clear().type(nuevoNombre);\n  // --- Editar descripción ---\n  cy.get(\"textarea[id^='editDescripcion']\").should(\"be.visible\").click().clear().type(nuevaDescripcion);\n  // --- Editar precio ---\n  cy.get(\"input[id^='precioProductoEdit']\").should(\"be.visible\").click().clear().type(nuevoPrecio);\n  // --- Guardar cambios ---\n  cy.get(\"div.modal-footer button.btn.btn-primary\").should(\"be.visible\").click();\n});\n// --- Espera a que el modal cierre correctamente ---\ncy.get(\"div.modal.fade.show\").should(\"not.exist\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `textarea[id^='editDescripcion']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `textarea[id^='editDescripcion']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Productos/EditarProductos.cy.js:47:17)\n    at withinFn (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:135235:8)\n    at <unknown> (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:135316:16)\n    at __WEBPACK_DEFAULT_EXPORT__ (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:133169:10)\n    at Context.within (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:135302:67)\n    at wrapped (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:145577:19)",
+                "diff": null
+              },
+              "uuid": "27159adb-3b89-4e7a-b072-f3a3d0c102f5",
+              "parentUUID": "e6704c6c-f570-4e05-a811-3c2869994d4f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "27159adb-3b89-4e7a-b072-f3a3d0c102f5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17618,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}

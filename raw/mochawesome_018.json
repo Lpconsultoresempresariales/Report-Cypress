@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-12-06T14:21:19.948Z",
+    "end": "2025-12-06T14:21:49.907Z",
+    "duration": 29959,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0bb0ed21-0808-4ff7-935e-80306d6d7b41",
+      "title": "",
+      "fullFile": "cypress/e2e/Productos/1. RegistrarProductos.cy.js",
+      "file": "cypress/e2e/Productos/1. RegistrarProductos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "626dc5fb-ba71-4767-a4ae-d2f4ff18cefd",
+          "title": "RegistroProducto - Agregar productos válidos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe registrar un producto INVENTARIABLE",
+              "fullTitle": "RegistroProducto - Agregar productos válidos Debe registrar un producto INVENTARIABLE",
+              "timedOut": null,
+              "duration": 17779,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// --- Variables del producto ---\nconst timestamp = Date.now();\nconst nombreProducto = `P_Inventariable_${timestamp}`;\nconst cantidadProducto = \"22\";\nconst precioCompra = \"50000\";\nconst precioVenta = \"60000\";\nconst descripcion = \"Producto de prueba con inventario\";\n// --- Navegar a la página de Productos ---\ncy.visit(\"/productos\");\n// --- Validar que estamos en la página de Productos ---\ncy.url().should(\"include\", \"/productos\");\n// --- Abrir modal de \"Agregar producto\" ---\ncy.get('button.btn-agregar[data-target=\"#ingresoModal\"]').should(\"be.visible\").click();\ncy.get(\"#ingresoModal\").should(\"be.visible\");\n// --- Verificar que el switch esté marcado como inventariable por defecto ---\ncy.get('#inventariableSwitch').should(\"be.checked\");\ncy.get('#tipoTexto').should(\"contain\", \"Inventariable\");\n// --- Llenar datos del producto ---\ncy.get('#ingresoModal input[name=\"nombreProducto\"]').type(nombreProducto);\n// Código se selecciona sin escribir\ncy.get('#ingresoModal input[name=\"codigoProducto\"]').click();\ncy.get(\"#sugerencia-codigo\").should(\"exist\");\n// Descripción del producto\ncy.get('#ingresoModal textarea[name=\"descripcion\"]').type(descripcion);\n// Cantidad (solo para inventariables)\ncy.get('#ingresoModal input[name=\"cantidadP\"]').type(cantidadProducto);\n// Precios\ncy.get('#ingresoModal input[name=\"precioCompra_formatted\"]').type(precioCompra);\ncy.get('#ingresoModal input[name=\"precioProducto_formatted\"]').type(precioVenta);\n// --- Guardar producto ---\ncy.get('#ingresoModal button.btn.btn-primary[type=\"submit\"]').click();\n// --- Validar cierre de modal ---\ncy.get(\"#ingresoModal\").should(\"not.be.visible\");\n// --- Validar que el producto aparece en la tabla ---\ncy.contains(nombreProducto).should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<div#ingresoModal.modal.fade.show>' not to be 'visible'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<div#ingresoModal.modal.fade.show>' not to be 'visible'\n    at Context.eval (webpack:///./cypress/e2e/Productos/1. RegistrarProductos.cy.js:66:32)",
+                "diff": null
+              },
+              "uuid": "40a477dc-cbe8-4616-80fe-3bacb2262f1c",
+              "parentUUID": "626dc5fb-ba71-4767-a4ae-d2f4ff18cefd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe registrar un producto NO INVENTARIABLE",
+              "fullTitle": "RegistroProducto - Agregar productos válidos Debe registrar un producto NO INVENTARIABLE",
+              "timedOut": null,
+              "duration": 12044,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// --- Variables del producto ---\nconst timestamp = Date.now();\nconst nombreProducto = `P_NoInventariable_${timestamp}`;\nconst precioCompra = \"30000\";\nconst precioVenta = \"45000\";\nconst descripcion = \"Producto de prueba sin inventario (servicio)\";\n// --- Navegar a la página de Productos ---\ncy.visit(\"/productos\");\n// --- Validar que estamos en la página de Productos ---\ncy.url().should(\"include\", \"/productos\");\n// --- Abrir modal de \"Agregar producto\" ---\ncy.get('button.btn-agregar[data-target=\"#ingresoModal\"]').should(\"be.visible\").click();\ncy.get(\"#ingresoModal\").should(\"be.visible\");\n// --- Desactivar el switch de inventariable ---\ncy.get('#inventariableSwitch').uncheck();\n// --- Verificar que el tipo cambió a No Inventariable ---\ncy.get('#inventariableSwitch').should(\"not.be.checked\");\ncy.get('#tipoTexto').should(\"contain\", \"No Inventariable\");\ncy.get('#tipoDescripcion').should(\"contain\", \"No se creará inventario ni lotes\");\n// --- Llenar datos del producto ---\ncy.get('#ingresoModal input[name=\"nombreProducto\"]').type(nombreProducto);\n// Código se selecciona sin escribir\ncy.get('#ingresoModal input[name=\"codigoProducto\"]').click();\ncy.get(\"#sugerencia-codigo\").should(\"exist\");\n// Descripción del producto\ncy.get('#ingresoModal textarea[name=\"descripcion\"]').type(descripcion);\n// --- NO llenar cantidad porque es un producto no inventariable ---\n// El campo debe tener valor 0 automáticamente\n// Precios\ncy.get('#ingresoModal input[name=\"precioCompra_formatted\"]').type(precioCompra);\ncy.get('#ingresoModal input[name=\"precioProducto_formatted\"]').type(precioVenta);\n// --- Guardar producto ---\ncy.get('#ingresoModal button.btn.btn-primary[type=\"submit\"]').click();\n// --- Validar cierre de modal ---\ncy.get(\"#ingresoModal\").should(\"not.be.visible\");\n// --- Validar que el producto aparece en la tabla ---\ncy.contains(nombreProducto).should(\"be.visible\");",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10050ms: `cy.uncheck()` failed because this element:\n\n`<input type=\"checkbox\" class=\"custom-control-input\" id=\"inventariableSwitch\" checked=\"\">`\n\nis being covered by another element:\n\n`<label class=\"custom-control-label\" for=\"inventariableSwitch\"></label>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 10050ms: `cy.uncheck()` failed because this element:\n\n`<input type=\"checkbox\" class=\"custom-control-input\" id=\"inventariableSwitch\" checked=\"\">`\n\nis being covered by another element:\n\n`<label class=\"custom-control-label\" for=\"inventariableSwitch\"></label>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at ensureIsDescendent (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:114621:68)\n    at ensureDescendents (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:114672:5)\n    at ensureDescendentsAndScroll (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:114678:14)\n    at ensureElIsNotCovered (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:114809:5)\n    at runAllChecks (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:115008:52)\n    at retryActionability (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:115045:16)\n    at tryCatcher (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:151252:68)\n    at <unknown> (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:151193:14)\n    at tryCatcher (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://lpconsultoresempresariales.com/__cypress/runner/cypress_runner.js:5420:46)",
+                "diff": null
+              },
+              "uuid": "e8086a26-4d80-4539-9777-a0b93c35e451",
+              "parentUUID": "626dc5fb-ba71-4767-a4ae-d2f4ff18cefd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "40a477dc-cbe8-4616-80fe-3bacb2262f1c",
+            "e8086a26-4d80-4539-9777-a0b93c35e451"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 29823,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": false,
+        "saveAllAttempts": false
+      },
+      "version": "6.3.0"
+    }
+  }
+}
